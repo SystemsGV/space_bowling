@@ -1,89 +1,89 @@
 <!--Content-->
 
 <div class="container" style="background-color: rgba(233,30,150,0.35); margin-bottom: 10px;">
-    <!--small cards-->
-    <!--  <div class="row" style="background-color: #205388;"> -->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-content">
-                    <!--<div class="card-header-blue">
+  <!--small cards-->
+  <!--  <div class="row" style="background-color: #205388;"> -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-content">
+          <!--<div class="card-header-blue">
               <h3 class="card-heading"><center>INSTALACIONES</center></h3>
             </div>-->
-                    <div class="card-body">
-                        <p class="card-p"><strong>Podrás practicar un deporte de sano entretenimiento, incentivar la competitividad con tus familiares y amigos, pasarla bien y divertirte a lo máximo, jugando bowling en el COSMIC BOWLING.</strong></p>
-                    </div>
-                </div>
-            </div>
+          <div class="card-body">
+            <p class="card-p"><strong>Podrás practicar un deporte de sano entretenimiento, incentivar la competitividad con tus familiares y amigos, pasarla bien y divertirte a lo máximo, jugando bowling en el COSMIC BOWLING.</strong></p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="row">
-        <div class="col-md-12">
-        </div>
+  <div class="row">
+    <div class="col-md-12">
     </div>
+  </div>
 
-    <div class="row">
+  <div class="row">
 
-        <div class="col-md-6 col-sm-6">
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-header-red">
-                        <h3 class="card-heading">
-                            <center>Horarios</center>
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        <!--<h3>Horarios</h3>-->
-                        <p class="card-p"><strong> - Lunes a Jueves: 3 pm a 11 pm</strong></p>
-                        <p class="card-p"><strong> - Viernes: 2:30 pm a 11:30 pm </strong></p>
-                        <p class="card-p"><strong> - Sábados: 1 pm a 11:30 pm </strong></p>
-                        <p class="card-p"><strong> - Domingos: 1 pm a 11:00 pm </strong></p>
-                        <!--<p class="card-p"><strong>Viernes, Sábado y víspera de feriado: 11:00 a.m. a Media Noche <br>&nbsp;</strong></p>
+    <div class="col-md-6 col-sm-6">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-header-red">
+            <h3 class="card-heading">
+              <center>Horarios</center>
+            </h3>
+          </div>
+          <div class="card-body">
+            <!--<h3>Horarios</h3>-->
+            <p class="card-p"><strong> - Lunes a Jueves: 3 pm a 11 pm</strong></p>
+            <p class="card-p"><strong> - Viernes: 2:30 pm a 11:30 pm </strong></p>
+            <p class="card-p"><strong> - Sábados: 1 pm a 11:30 pm </strong></p>
+            <p class="card-p"><strong> - Domingos: 1 pm a 11:00 pm </strong></p>
+            <!--<p class="card-p"><strong>Viernes, Sábado y víspera de feriado: 11:00 a.m. a Media Noche <br>&nbsp;</strong></p>
               <p class="card-p"><strong> - Sabados: 1 pm a 11:30 pm</strong></p>
               -->
 
-                        <!--<p class="card-p"><strong>TELEFONOS Informes  :017110140 - 017177771 anexo 238</strong></p>-->
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-header-red">
-                        <h3 class="card-heading">
-                            <center>Dirección</center>
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        <!--<h3>Dirección</h3>-->
-                        <p class="card-p"><strong>Calle Mantaro 300 San Miguel. </strong></p>
-                        <p class="card-p"><strong>Encuéntranos al costado de Cineplanet en Plaza San Miguel. <br>&nbsp;</strong></p>
-                        <!--<p class="card-p"><strong>TELEFONOS Informes  :017110140 - 017177771 anexo 238</strong></p>-->
-                    </div>
-                </div>
-            </div>
+            <!--<p class="card-p"><strong>TELEFONOS Informes  :017110140 - 017177771 anexo 238</strong></p>-->
+          </div>
         </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <div class="card-header-red">
+            <h3 class="card-heading">
+              <center>Dirección</center>
+            </h3>
+          </div>
+          <div class="card-body">
+            <!--<h3>Dirección</h3>-->
+            <p class="card-p"><strong>Calle Mantaro 300 San Miguel. </strong></p>
+            <p class="card-p"><strong>Encuéntranos al costado de Cineplanet en Plaza San Miguel. <br>&nbsp;</strong></p>
+            <!--<p class="card-p"><strong>TELEFONOS Informes  :017110140 - 017177771 anexo 238</strong></p>-->
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <div class="col-md-6 col-sm-6">
-            <div class="card">
-                <div class="card-content">
-                    <div class="card-header-red">
-                        <h3 class="card-heading">
-                            <center>Alquiler</center>
-                        </h3>
-                    </div>
-                    <div class="card-body">
-                        <!-- <p class="card-p"><strong>Pista por Linea:</strong> Es una partida personal. Consiste en 10 lanzamientos dobles.</p>-->
-                        <p class="card-p"><strong>Pista por Tiempo:</strong> 30 ó 60 minutos de partida. Pueden jugar hasta 5 personas por pista</p>
-                        <p class="card-p"><strong>Zapatos:</strong> Es de uso obligatorio ingresar al área de jugadores con zapatos de bowling. Cuentan con suelas de jebe anti-deslizables, los cuales no dejaran que te resbales</p>
-                        <!--  <p class="card-p"><strong>Bumpers:</strong> Parachoques que se colocan a los costados de la pista para evitar que el bolo se desvié y tu puntuación sea 0.</p>-->
-                        <p class="card-p"><strong>Rampa:</strong> Para el uso de niños, ayuda a que lancen el bolo con mayor fuerza y dirección.</p>
-                        <p class="card-p"><strong>Billar:</strong> El popular “Taco”. Disfruta del juego con tus amigos.</p>
-                    </div>
-                </div>
-            </div>
+    <div class="col-md-6 col-sm-6">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-header-red">
+            <h3 class="card-heading">
+              <center>Alquiler</center>
+            </h3>
+          </div>
+          <div class="card-body">
+            <!-- <p class="card-p"><strong>Pista por Linea:</strong> Es una partida personal. Consiste en 10 lanzamientos dobles.</p>-->
+            <p class="card-p"><strong>Pista por Tiempo:</strong> 30 ó 60 minutos de partida. Pueden jugar hasta 5 personas por pista</p>
+            <p class="card-p"><strong>Zapatos:</strong> Es de uso obligatorio ingresar al área de jugadores con zapatos de bowling. Cuentan con suelas de jebe anti-deslizables, los cuales no dejaran que te resbales</p>
+            <!--  <p class="card-p"><strong>Bumpers:</strong> Parachoques que se colocan a los costados de la pista para evitar que el bolo se desvié y tu puntuación sea 0.</p>-->
+            <p class="card-p"><strong>Rampa:</strong> Para el uso de niños, ayuda a que lancen el bolo con mayor fuerza y dirección.</p>
+            <p class="card-p"><strong>Billar:</strong> El popular “Taco”. Disfruta del juego con tus amigos.</p>
+          </div>
         </div>
-    </div><br>
+      </div>
+    </div>
+  </div><br>
 </div>
 
 <!-- <div class="featured">
@@ -115,17 +115,22 @@
             <ul class="nav nav-tabs">
               <li class="active"><a data-toggle="tab" href="#pistas"> Pistas </a></li>
               <li><a data-toggle="tab" href="#billas"> Billar </a></li>
+              <li><a data-toggle="tab" href="#arcade"> Arcade </a></li>
               <li><a data-toggle="tab" href="#strike"> Strike Zone </a></li>
               <!--<li><a data-toggle="tab" href="#normas"> NORMAS </a></li>-->
               <li><a data-toggle="tab" href="#seguridad"> Guias de Seguridad </a></li>
+              <li><a data-toggle="tab" href="#menu"> Menú </a></li>
               <!--<li><a data-toggle="tab" href="#tarifas"> Tarifas </a></li>-->
             </ul>
 
             <div class="tab-content" style="padding: 10px;">
               <div id="pistas" class="tab-pane fade in active">
-                <h2>Pistas</h2>
-                <p>Modernas pistas de bowling Brunswick. 20 pistas en la zona general y 3 pistas vip en un ambiente exclusivo y privado. </p>
+                <h2>PISTAS</h2>
+                <p>Modernas pistas de bowling Brunswick. Contamos con 20 pistas en la zona general sumando a esto 1 pista vip en un ambiente exclusivo y privado.</p>
                 <p>Atención personalizada de los servers, quienes llevarán a la zona de juego todo tipo de alimentos y bebidas.</p>
+                <h2>PISTA VIP</h2>
+
+                <p>La pista vip es privada, exclusiva y diferenciada. Tiene un servicio personalizado y un espacio único.</p>
                 <h2 style="font-size:11px; font-family:Arial, Helvetica, sans-serif"><img src="new/images/pistas.jpg" width="100%"></h2>
               </div>
 
@@ -134,10 +139,16 @@
                 <p>Encontraras un lugar especial y reservado para jugar pool o billar. Puedes complementar el momento de diversión con tus amigos tomando bebidas y comiendo ricos piqueos.</p>
                 <p><img src="new/images/billas.jpg" width="100%"></p>
               </div>
+              <div id="arcade" class="tab-pane fade">
+                <h2>Arcade</h2>
+                <p>Desde lo clásico hasta lo más nuevo, asegurando una diversión garantizada para todas las edades.</p>
+                <p><img src="new/images/Arcade.jpg" width="100%"></p>
+              </div>
 
               <div id="strike" class="tab-pane fade">
                 <h2>Strike Zone</h2>
-                <p>Encontrarás un ambiente completamente moderno con aire acondicionado, música actualizada, colores alucinantes, zona Wifi y una variedad de todo tipo de alimentos y bebidas.</p>
+                <p>Un gran reemplazo para la salida genérica al cine, restaurante o club. Aquí encontrarás un ambiente completamente moderno con aire acondicionado, música actualizada, colores alucinantes, zona Wifi, una variedad de todo tipo de alimentos y bebidas.
+                </p>
                 <h2 style="font-size:11px; font-family:Arial, Helvetica, sans-serif"><img src="new/images/strike.jpg" width="100%"></h2>
               </div>
 
@@ -169,10 +180,9 @@
 
                   <p align="justify"> 1. No se permite el ingreso a las instalaciones con alimentos, bebidas, mascotas, coolers, cigarros, objetos punzo cortantes, triciclos, scooters, skates, globos, pelotas, armas de fuego, silbatos, cornetas u objetos que hagan ruido.</p><br>
 
-                  <p align="justify"> 2. El ingreso a las pistas es por orden de llegada según se cancele en caja. Solo se realizan reservaciones para cumpleaños, eventos corporativos y colegios. Si hay tiempo de espera, lo llamaremos cuando llegue su turno.<br>
-                    Por favor, acérquese a caja lo antes posible para entregarle el número de pista. Si demora, perderá su turno. </p><br>
+                  <p align="justify"> 2. El ingreso a las pistas es por orden de llegada según se cancele en caja. Solo se realizan reservaciones para cumpleaños, eventos corporativos y colegios. Si hay tiempo de espera, lo llamaremos cuando llegue su turno. Por favor, acérquese a caja lo antes posible para entregarle el número de pista. Si demora, perderá su turno. </p><br>
 
-                  <p align="justify"> 3. Luego de cancelar en caja el servicio por el alquiler de la pista por tiempo, tiene 8 minutos de tolerancia para cambiarse los zapatos. Pasado los minutos establecidos, el tiempo de juego en la pista se activará y comenzará a correr.</p><br>
+                  <p align="justify"> 3. Luego de cancelar en caja el servicio por el alquiler de la pista por tiempo, tiene 5 minutos de tolerancia para cambiarse los zapatos. Pasado los minutos establecidos, el tiempo de juego en la pista se activará y comenzará a correr.</p><br>
 
                   <p align="justify"> 4. El costo de alquiler por zapatos no está incluido en el precio del alquiler de la pista.</p><br>
 
@@ -182,9 +192,9 @@
 
                   <p align="justify"> 7. No se permite el cambio o reemplazo de jugadores una vez iniciada la partida. Las personas fuera del área de juego, no pueden ingresar y rotar para incluirse en la partida. </p><br>
 
-                  <p align="justify"> 8.Los menores que deseen ingresar a la zona de jugadores, como espectador o jugador, deberán tener calzado de bowling. La talla mínima es 27 (nacional) o 10 (internacional). Si el menor no llega a la talla mínima de calzado, no podrá ingresar al área de jugadores.</p><br>
+                  <p align="justify"> 8. Los menores que deseen ingresar a la zona de jugadores, como espectador o jugador, deberán tener calzado de bowling. La talla mínima es 27 (nacional) o 10 (internacional). Si el menor no llega a la talla mínima de calzado, no podrá ingresar al área de jugadores.</p><br>
 
-                  <p align="justify"> 9. El uso de los bolos se da en base a estatura, fuerza y peso del jugador. Los bolos 6 y 7 son exclusivamente para niños menores de 8 años.</p><br>
+                  <p align="justify"> 9. El uso de los bolos se da en base a estatura, fuerza y peso del jugador. Los bolos de menor peso son exclusivamente para niños con calzado 27, 28, 29 y 30.</p><br>
 
                   <p align="justify"> 10. No se recomienda el ingreso a mujeres gestantes. Sin embargo, si desea estar en el área de juego de igual forma con calzado adecuado, deberá firmar una declaración jurada donde asume el riesgo al que se expone. </p><br>
 
@@ -202,6 +212,14 @@
                   </p><br>
 
                 </div>
+              </div>
+
+              <div id="menu" class="tab-pane fade">
+                <h2>Menú</h2>
+                <p>¿No tienes tiempo para cenar antes de tu juego de bolos? Gracias a nuestra variada y deliciosa carta, tenemos todo lo necesario para una comida agradable. ¿Quieres compartir comida con tus acompañantes? Te recomendamos los piqueos de otra galaxia. No olvides dejar espacio también para el postre, porque no querrás irte sin probar los postres galácticos.
+
+                </p>
+                <h2 style="font-size:11px; font-family:Arial, Helvetica, sans-serif"><img src="new/images/Menu.jpg" width="100%"></h2>
               </div>
 
               <div id="tarifas" class="tab-pane fade">
