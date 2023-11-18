@@ -11,7 +11,7 @@ html {
 img{
 	max-width:100%;
 	height: auto;
-   	width: auto\9; /* ie8 */
+   	width: auto; /* ie8 */
 }
 
 @media only screen and (min-width: 868px) and (max-width: 959px) {
@@ -58,7 +58,7 @@ img{
 	.menu{display:none;}
 	.minimenu{display:block;}
 	
-	nav .wrap-nav{background:none;}
+	nav .wrap-nav{background:none; margin-top:4rem;}
 	
 	#main-content .comment input, #main-content .comment textarea{width:90%;}
 	/* -------------------------------------------- */
@@ -81,7 +81,7 @@ img{
 	.menu{display:none;}
 	.minimenu{display:block;}
 	
-	nav .wrap-nav{background:none;}
+	nav .wrap-nav{background:none; margin-top:4rem;}
 	
 	#main-content .comment input, #main-content .comment textarea{width:90%;}
 	/* -------------------------------------------- */
@@ -104,7 +104,7 @@ img{
 	.menu{display:none;}
 	.minimenu{display:block;}
 	
-	nav .wrap-nav{background:none;}
+	nav .wrap-nav{background:none; margin-top:4rem;}
 	
 	#main-content .comment input, #main-content .comment textarea{width:90%;}
 	/* -------------------------------------------- */

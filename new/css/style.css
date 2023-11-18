@@ -169,8 +169,10 @@ select {
 html,
 body {
 	width: 100%;
-	padding: 0;
-	margin: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+	overflow-x: hidden;
 }
 body {
 	background: #0e2848 url("../images/fondo.jpg") no-repeat center center fixed;
@@ -180,6 +182,8 @@ body {
 	background-size: cover;
 	color: #ffffff;
 	font: 14px/25px Arial, Helvetica, sans-serif;
+    margin-bottom: 100px; /* Ajusta este valor según la altura de tu pie de página */
+    position: relative;
 }
 
 a {
@@ -187,7 +191,7 @@ a {
 	text-decoration: none;
 }
 a:hover {
-	color: #0cea90;
+	color: #7b3b8b;
 	text-decoration: none;
 }
 
@@ -940,7 +944,7 @@ h3 {
 	font-weight: normal;
 
 	/*padding: 5px 0px 0px 15px;*/
-	width: 1000px;
+	width: 100%;
 }
 
 .footer-distributed .footer-center {

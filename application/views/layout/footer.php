@@ -1,81 +1,59 @@
-<!-- Footer -->
 <div class="wrap-footer zerogrid">
     <footer class="footer-distributed">
+        <div class="container">
+            <div class="row" style="display: block !important;">
+                <center>
+                    <!-- Left Section: Company Logo -->
+                    <div class="col-md-4">
+                        <a href="<?= base_url() ?>">
+                            <img src="<?= base_url() ?>new/images/logo.png" alt="Company Logo">
+                        </a>
+                    </div>
 
-        <div class="footer-left">
-            <!--LOGO DE EMPRESA-->
-            <div class="col-4-4">
-                <div class="wrap-col">
-                    <div class="box">
-                        <div class="content">
-                            <div id="logo"><a href="<?= base_url() ?>"><img src="<?= base_url() ?>new/images/logo.png"></a></div>
+                    <!-- Center Section: Contact Information -->
+                    <div class="col-md-4">
+                        <p><i class="fa fa-map-marker"></i><span> Calle Mantaro 300 San Miguel.</span> Lima, Peru</p>
+                        <p><i class="fa fa-envelope"></i><a href="mailto:samy@cosmicbowling.com.pe"> samy@cosmicbowling.com.pe</a></p>
+                    </div>
+
+                    <!-- Right Section: Book of Claims and Social Media Icons -->
+                    <div class="col-md-4">
+                        <a href="<?= base_url() ?>Libro-de-Reclamaciones" target="_blank">
+                            <img src="<?= base_url() ?>new/images/libroreclamaciones2.png" alt="Libro de Reclamaciones">
+                        </a>
+                        <div class="footer-icons">
+                            <a href="https://www.facebook.com/cosmicbowling1/" title="Facebook"><i class="fa fa-facebook"></i></a>
+                            <a target="_parent" href="https://www.instagram.com/cosmic_bowling/" title="Instagram"><i class="fa fa-instagram"></i></a>
                         </div>
                     </div>
+                </center>
+            </div>
+            <br>
+            <!-- Navigation Links -->
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <a href="<?= base_url() ?>">Inicio</a> |
+                    <a href="<?= base_url() ?>Quienes-Somos">Quienes Somos</a> |
+                    <a href="<?= base_url() ?>Instalaciones">Instalaciones</a> |
+                    <a href="<?= base_url() ?>Servicios">Servicios</a> |
+                    <a href="<?= base_url() ?>Promociones">Promociones</a> |
+                    <a href="<?= base_url() ?>Protocolos" target="_blank">Protocolos</a> |
+                    <a href="http://200.37.146.94/webconsulta/wbfrmConsulta.aspx">Comprobantes Electronicos</a> |
+                    <a href="https://www.cosmicbowling.com.pe/cuponera/">Cupones Empresas</a> | <br>
+                    <a href="<?= base_url() ?>Guia-de-Seguridad" target="_blank">Guias de Seguridad</a>
                 </div>
             </div>
-
-
-            <div class="footer-links" align="center">
-                <a href="<?= base_url() ?>">Inicio</a>
-                .
-                <a href="<?= base_url() ?>Quienes-Somos">Quienes Somos</a>
-                .
-                <a href="<?= base_url() ?>Instalaciones">Instalaciones</a>
-                .
-                <a href="<?= base_url() ?>Servicios">Servicios</a>
-                .
-                <a href="<?= base_url() ?>Promociones">Promociones</a>
-                .
-                <a href="<?= base_url() ?>Protocolos" target="_blank">Protocolos</a>
-                .
-                <a href="http://200.37.146.94/webconsulta/wbfrmConsulta.aspx">Comprobantes Electronicos</a>
-                .
-                <a href="https://www.cosmicbowling.com.pe/cuponera/">Cupones Empresas</a>
-                .
-                <a href="<?= base_url() ?>Guia-de-Seguridad" target="_blank">Guias de Seguridad</a>
+            <br>
+            <!-- Company Name and Copyright -->
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <p class="footer-company-name">Cosmic Bowling &copy; 2018</p>
+                </div>
             </div>
-
-            <p class="footer-company-name" align="center">Cosmic Bowling &copy; 2018</p>
         </div>
-
-        <div class="footer-center">
-
-            <div>
-                <i class="fa fa-map-marker"></i>
-                <p><span>Calle Mantaro 300 San Miguel.</span>Lima, Peru</p>
-
-            </div>
-
-            <!--<div>
-					<i class="fa fa-phone"></i>
-					<p>+1 555 123456</p>
-				</div>-->
-
-            <div>
-                <i class="fa fa-envelope"></i>
-                <p><a href="mailto:samy@cosmicbowling.com.pe">samy@cosmicbowling.com.pe</a></p>
-            </div>
-
-        </div>
-
-        <div class="footer-right">
-
-            <p class="footer-company-about">
-            <div id="logo" align="center"><a href="<?= base_url() ?>Libro-de-Reclamaciones" target="_blank"><img src="<?= base_url() ?>new/images/libroreclamaciones2.png"></a></div>
-            </p>
-
-            <div class="footer-icons" align="center">
-
-                <a href="https://www.facebook.com/cosmicbowling1/" title="Facebook"><i class="fa fa-facebook"></i></a>
-                <!--<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-youtube"></i></a>-->
-                <a target="_parent" href="https://www.instagram.com/cosmic_bowling/" title="Intagram"><i class="fa fa-instagram"></i></a>
-
-            </div>
-
-        </div>
-
     </footer>
+</div>
+
 </div>
 <!-- *************** *****   ***   ESTRUCTURA DE CAPACITACIONES   ***   ***** ************* -->
 <script src="<?= base_url() ?>new/js/validacion.js"></script>
@@ -89,17 +67,17 @@
         let lis = document.querySelector('.list_header').getElementsByTagName('li');
 
         [].forEach.call(lis, element => {
-          element.addEventListener('mouseover', () => {
-              if(page == element.innerText){
-                  element.classList.add('current');
-              }
-             console.log(element.innerText)
-          });
+            element.addEventListener('mouseover', () => {
+                if (page == element.innerText) {
+                    element.classList.add('current');
+                }
+                console.log(element.innerText)
+            });
         });
         $(window).load(function() {
             $(".loader").fadeOut("slow");
         });
-        
+
         $("#slider").responsiveSlides({
             auto: true,
             pager: false,
@@ -110,6 +88,22 @@
         });
 
     });
+
+    const items = document.querySelectorAll(".accordion button");
+
+    function toggleAccordion() {
+        const itemToggle = this.getAttribute('aria-expanded');
+
+        for (i = 0; i < items.length; i++) {
+            items[i].setAttribute('aria-expanded', 'false');
+        }
+
+        if (itemToggle == 'false') {
+            this.setAttribute('aria-expanded', 'true');
+        }
+    }
+
+    items.forEach(item => item.addEventListener('click', toggleAccordion));
 </script>
 
 <style type="text/css">

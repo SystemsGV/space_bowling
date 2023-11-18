@@ -30,10 +30,10 @@
                 <!--<div class="heading"><h2>BIENVENIDOS<br />AL BOWLING LARCOMAR</h2></div> -->
                 <!-- <div class="heading"><img src="new/iconos/bienvenidos.png" width="1141"/></div>-->
                 <article class="row">
-                    <div class="col-1-3" style="background:rgba(130,128,128,0.17);">
+                    <div class="col-lg-4" style="background:rgba(130,128,128,0.17);">
                         <div class="wrap-col"> <img src="new/images/img1.jpg" /> </div>
                     </div>
-                    <div class="col-2-3">
+                    <div class="col-lg-8">
                         <div class="wrap-col">
                             <h2>Nuestra historia</h2>
                             <p>Cosmic Bowling fue inaugurado el 24 de noviembre de 1998, en el Centro Turístico de Entretenimiento Larcomar, Lima Perú.</p>
@@ -44,10 +44,10 @@
                     </div>
                 </article>
                 <article class="row">
-                    <div class="col-1-3" style="background:rgba(130,128,128,0.17);">
+                    <div class="col-lg-4" style="background:rgba(130,128,128,0.17);">
                         <div class="wrap-col"> <img src="<?=base_url()?>new/images/img2.jpg" /> </div>
                     </div>
-                    <div class="col-2-3">
+                    <div class="col-lg-8">
                         <div class="wrap-col">
                             <h2>Misión</h2>
                             <p>Ofrecer deporte, diversión y recreación familiar para niños, jóvenes y adultos, promoviendo entre ellos una sana competencia individual y grupal.</p>
@@ -57,10 +57,10 @@
                     </div>
                 </article>
                 <article class="row">
-                    <div class="col-1-3" style="background:rgba(130,128,128,0.17);">
+                    <div class="col-lg-4" style="background:rgba(130,128,128,0.17);">
                         <div class="wrap-col"> <img src="<?=base_url()?>new/images/img3.jpg" /> </div>
                     </div>
-                    <div class="col-2-3">
+                    <div class="col-lg-8">
                         <div class="wrap-col">
                             <h2>Visión</h2>
                             <p>Ser la mejor opción de entretenimiento familiar de destino intermedio.</p>
@@ -68,10 +68,10 @@
                     </div>
                 </article>
                 <article class="row">
-                    <div class="col-1-3" style="background:rgba(130,128,128,0.17);">
+                    <div class="col-lg-4" style="background:rgba(130,128,128,0.17);">
                         <div class="wrap-col"> <img src="<?=base_url()?>new/images/img4.jpg" /> </div>
                     </div>
-                    <div class="col-2-3">
+                    <div class="col-lg-8">
                         <div class="wrap-col">
                             <h2>Nuestros Servicios</h2>
                             <p><a href="<?=base_url()?>Servicios">Cumpleaños</a></p>

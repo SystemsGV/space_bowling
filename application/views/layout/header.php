@@ -5,8 +5,9 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en"> <!--<![endif]-->
 
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 
     <!-- Basic Page Needs
   ================================================== -->
@@ -55,32 +56,32 @@
 </head>
 
 <body>
-<input type="hidden" value="<?=$title?>" id="current-title">
+    <input type="hidden" value="<?= $title ?>" id="current-title">
     <div class="loader">
         <img class="img-center" src="new/images/logo.png" alt="">
     </div>
 
     <!-- Header -->
     <header>
-        
+
         <div class="wrap-header zerogrid">
 
 
             <div class="upper-nav">
                 <div class="container">
                     <div class="row" style="justify-content: center;align-items: center;">
-                        <div style="margin-top: 42px; margin-right:75px">
-                            <!-- 	<img src="img/a2.png" width="100px" height="100px" style="margin-top: 42px; margin-right:75px">-->
-                        </div>
-                        <div id="logo">
-                            <center><a href="index.php"><img src="<?= base_url() ?>new/images/logo.png"></a></center>
+                        <div class="col-lg-12">
+
+                            <div id="logo">
+                                <center><a href="index.php"><img src="<?= base_url() ?>new/images/logo.png"></a>
+                                    <?php if ($img) { ?>
+                                        <img src="<?= base_url() ?>img/a1.png" width="100px" height="100px" style="margin-top: 42px;">
+                                    <?php } ?>
+                                </center>
+                            </div>
+
                         </div>
 
-                        <?php if ($img){ ?>
-                        <div>
-                            <img src="<?= base_url() ?>img/a1.png" width="100px" height="100px" style="margin-top: 42px;">
-                        </div>
-                        <?php }?>
                     </div>
                 </div>
             </div>
@@ -101,6 +102,7 @@
                     <li class=""><a href="<?= base_url() ?>Tarifa">Tarifa</a></li>
                     <li class=""><a href="<?= base_url() ?>Servicios">Servicios</a></li>
                     <li class=""><a href="<?= base_url() ?>Contactenos">Contacto</a></li>
+                    <li class=""><a href="<?= base_url() ?>Preguntas-Frecuentes">Preguntas Frecuentes</a></li>
                     <!--	<li><a href="https://sites.google.com/view/protocolobw/inicio">Protocolo De Bioseguridad</a></li>-->
                 </ul>
             </div>
@@ -115,6 +117,7 @@
                     <option value="<?= base_url() ?>Tarifa">Tarifa</option>
                     <option value="<?= base_url() ?>Servicios">Servicios</option>
                     <option value="<?= base_url() ?>Contactenos">Contacto</option>
+                    <option value="<?= base_url(); ?>Preguntas-Frecuentes">Preguntas Frecuentes</option>
                 </select>
             </div>
         </div>

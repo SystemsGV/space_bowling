@@ -67,6 +67,7 @@ $route['Libro-de-Reclamaciones'] = 'site/blockclaims';
 $route['Promociones'] = 'site/promotions';
 $route['Protocolos'] = 'site/protocol';
 $route['Guia-de-Seguridad'] = 'site/securityguide';
+$route['Preguntas-Frecuentes'] = 'site/faqs';
 
 
 //ROUTES MAIL
