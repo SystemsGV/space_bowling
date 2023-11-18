@@ -177,7 +177,7 @@
                                         </div>
                                     </div>
                                     <div class="accordion-item">
-                                        <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">¿Cuál es la talla mínima y máxima que manejan?</span><span class="icon" aria-hidden="true"></span></button>
+                                        <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">¿Cuál es la talla mínima y máxima de calzado?</span><span class="icon" aria-hidden="true"></span></button>
                                         <div class="accordion-content">
                                             <p> La talla mínima es la 27 y la talla máxima es 48</p>
                                         </div>
