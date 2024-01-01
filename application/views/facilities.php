@@ -35,10 +35,26 @@
           </div>
           <div class="card-body">
             <!--<h3>Horarios</h3>-->
-            <p class="card-p"><strong> - Lunes a Jueves: 3 pm a 11 pm</strong></p>
-            <p class="card-p"><strong> - Viernes: 2:30 pm a 11:30 pm </strong></p>
-            <p class="card-p"><strong> - Sábados: 1 pm a 11:30 pm </strong></p>
-            <p class="card-p"><strong> - Domingos: 1 pm a 11:00 pm </strong></p>
+            <div class="row">
+              <div class="col-md-6">
+                <p class="sub-title-hours">Invierno <br> <b class="f-15">De Marzo a Diciembre</b></p>
+                <p class="card-p"><strong> - Lunes a Jueves: 3 pm a 11 pm</strong></p>
+                <p class="card-p"><strong> - Viernes: 2:30 pm a 11:30 pm </strong></p>
+                <p class="card-p"><strong> - Sábados: 1 pm a 11:30 pm </strong></p>
+                <p class="card-p"><strong> - Domingos: 1 pm a 11:00 pm </strong></p>
+
+              </div>
+              <div class="col-md-6">
+                <p class="sub-title-hours">Verano <br> <b class="f-15">Enero - Febrero</b></p>
+                <p class="card-p"><strong> - Lunes a Domingo de 12pm a 12am</strong></p>
+              </div>
+              <div class="col-md-12">
+                <p class="card-p"><strong> * Los feriados trabajamos como fin de semana</strong></p>
+
+              </div>
+            </div>
+
+
             <!--<p class="card-p"><strong>Viernes, Sábado y víspera de feriado: 11:00 a.m. a Media Noche <br>&nbsp;</strong></p>
               <p class="card-p"><strong> - Sabados: 1 pm a 11:30 pm</strong></p>
               -->
