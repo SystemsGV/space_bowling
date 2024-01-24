@@ -16,7 +16,7 @@
                             <div id="pistas" class="tab-pane fade in active">
 
 
-                                <h2 style="font-size:11px; font-family:Arial, Helvetica, sans-serif"><img src="new/images/prices-december.jpg" width="100%"></h2>
+                                <h2 style="font-size:11px; font-family:Arial, Helvetica, sans-serif"><img src="new/images/rates-january2024.jpg" width="100%"></h2>
                             </div>
 
                             <div id="billas" class="tab-pane fade">
@@ -99,7 +99,7 @@
 
                             <div id="tarifas" class="tab-pane fade">
                                 <div align="center">
-                                    <p><img src="new/images/prices-december.jpg" width="900" height="600"></p>
+                                    <p><img src="new/images/rates-january2024.jpg" width="900" height="600"></p>
                                 </div>
                             </div>
                             <div id="menu" class="tab-pane fade">
