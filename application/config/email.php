@@ -1,6 +1,6 @@
 <?php
 $config['protocol'] = 'smtp';
-$config['smtp_host'] = 'mail.lagranjavilla.com';
+$config['smtp_host'] = 'mail.cosmicbowling.com.pe';
 $config['smtp_user'] = 'atencionalcliente@cosmicbowling.com.pe';
 $config['smtp_pass'] = 'WZzVWlsN-$&_';
 $config['smtp_port'] = 465;
