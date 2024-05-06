@@ -79,61 +79,74 @@ class Site extends CI_Controller
 
   public function send_contact()
   {
-    //Datos del Formulario capturando data
-
+    // Datos del formulario
     $name = $this->input->post('name');
     $email = $this->input->post('email');
     $telefono = $this->input->post('telefono');
-    $message = $this->input->post('message');
+    $message_content = $this->input->post('message');
 
+    // Dirección de correo electrónico del destinatario
+    $to = "atencionalcliente@cosmicbowling.com.pe";
 
-    // crear variable para el receptor de correo adm@bowlinglarcomar.com
-    $to = "ventasweb@lagranjavilla.com";
-    $to = "adm@cosmicbowling.com.pe";
-    $to = "adm.1@cosmicbowling.com.pe";
+    // Asunto del correo electrónico
+    $subject = "Cosmic Bowling - Formulario Web";
 
-    //Se imprime el mensaje a enviar.
-    //datos del cliente
-
-    //crear estructura del formulario.
-    $subject = "Cosmic Bowling  - Formulario Web";
-
-    //MENSAJE DE CORREO ELECTRÓNICO
+    // Crear el mensaje de correo electrónico
     $message = "
-		
-		<h2>Informaci&oacute;n de Cont&aacute;cto</h2>
+    <html>
+    <head>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            th {
+                background-color: #6a0dad; /* Color morado */
+                color: white; /* Texto blanco */
+            }
+        </style>
+    </head>
+    <body>
+        <h2 style='color: #6a0dad;'>Información de Contacto</h2> <!-- Texto morado -->
+        <table>
+            <tr>
+                <th>Nombre:</th><td>$name</td>
+            </tr>
+            <tr>
+                <th>Correo Electrónico:</th><td>$email</td>
+            </tr>
+            <tr>
+                <th>N° Teléfono:</th><td>$telefono</td>
+            </tr>
+            <tr>
+                <th>MENSAJE:</th><td>$message_content</td>git 
+            </tr>
+        </table>
+        <p style='color: #6a0dad;'><b>Cosmic Bowling</b></p> <!-- Texto morado -->
+    </body>
+    </html>
+";
 
-		<table>
-			<tr>
-		   		<td><b>Nombre :</b></td><td> $name </td>
-		  	</tr>
-		  	<tr>
-		    	<td><b>Correo Electronico :</b></td><td> $email </td>
-		  	</tr>
-		  <tr>
-		    	<td><b>N° Telefono :</b></td><td> $telefono </td>
-		  </tr>
-		  <tr>
-		    	<td><b>MENSAJE :</b></td><td> $message </td>
-		  </tr>
-		</table>
 
-		<p> <b> Cosmic Bowling </b> </p>
-		";
+    // Configurar la biblioteca de correo electrónico de CodeIgniter
+    $this->load->library('email');
 
-    // Crear la cabecera del mensaje y formato
-    //header('Content-Type: text/html; charset=utf-8');
-    $header = "MIME-Version: 1.0\r\n";
-    $header = 'From: ' . $email . "\r\n" .
-      $header .= 'Bcc: sistemas.st@lagranjavilla.com' . "\r\n";
-    $header .= 'Content-Type: text/html; charset=utf-8' . "\r\n";
+    $this->email->from($email, $name);
+    $this->email->to($to);
+    $this->email->subject($subject);
+    $this->email->message($message);
 
-    if (@mail($to, $subject, $message, $header)) {
+    // Intentar enviar el correo electrónico
+    if ($this->email->send()) {
       echo '<script language="javascript"> alert("El mensaje ha sido enviado correctamente."); </script>';
       echo '<script language="JavaScript"> window.location.href ="' . base_url() . '" </script>';
-      //	header('location:www.lagranjavilla.com');
     } else {
-      echo "Por favor verifica la informacion";
+      echo "Por favor verifica la información.";
     }
   }
 
