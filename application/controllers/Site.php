@@ -112,7 +112,7 @@ class Site extends CI_Controller
         </style>
     </head>
     <body>
-        <h2 style='color: #6a0dad;'>Información de Contacto</h2> <!-- Texto morado -->
+        <h2 style='color: #6a0dad;'>Información de Contacto</h2> 
         <table>
             <tr>
                 <th>Nombre:</th><td>$name</td>
@@ -127,8 +127,7 @@ class Site extends CI_Controller
                 <th>MENSAJE:</th><td>$message_content</td>git 
             </tr>
         </table>
-        <p style='color: #6a0dad;'><b>Cosmic Bowling</b></p> <!-- Texto morado -->
-    </body>
+        <p style='color: #6a0dad;'><b>Cosmic Bowling</b></p>
     </html>
 ";
 
@@ -146,7 +145,7 @@ class Site extends CI_Controller
       echo '<script language="javascript"> alert("El mensaje ha sido enviado correctamente."); </script>';
       echo '<script language="JavaScript"> window.location.href ="' . base_url() . '" </script>';
     } else {
-      echo "Por favor verifica la información.";
+      echo "Error: ." . $this->email->print_debugger();
     }
   }
 

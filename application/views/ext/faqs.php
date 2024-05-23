@@ -131,7 +131,7 @@
                                     <div class=" accordion-item">
                                         <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">¿Dónde están ubicados?</span><span class="icon" aria-hidden="true"></span></button>
                                         <div class="accordion-content">
-                                            <p>Estamos en Calle Mantaro 300 - San Miguel. En el centro comercial Plaza San Miguel. Referencia: al costado de Cineplanet, alfrente de Bembos.</p>
+                                            <p>Estamos en Calle Mantaro 300 - San Miguel. En el centro comercial Plaza San Miguel. Referencia: al costado de Cineplanet, al frente de Bembos.</p>
                                         </div>
                                     </div>
                                     <div class="accordion-item">

@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>new/css/style.css">
     <link rel="stylesheet" href="<?= base_url() ?>new/css/responsive.css">
     <link rel="stylesheet" href="<?= base_url() ?>new/css/responsiveslides.css">
-    <link rel="stylesheet" href="<?= base_url() ?>new/css/font-awesome.css">
+    <script src="https://kit.fontawesome.com/303378d327.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="<?= base_url() ?>new/css/bootstrap.min.css">
 
