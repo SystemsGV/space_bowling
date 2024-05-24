@@ -23,6 +23,7 @@
                         </a>
                         <div class="footer-icons">
                             <a href="https://www.facebook.com/cosmicbowling1/" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/cosmic_bowling/" title="Instagram"><i class="fa fa-instagram"></i></a>
                             <a target="_blank" href="https://www.tiktok.com/@cosmic_bowling?is_from_webapp=1&sender_device=pc" title="Instagram"><i class="fa-brands fa-tiktok"></i></a>
                         </div>
                     </div>
