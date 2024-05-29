@@ -39,8 +39,7 @@
                     <a href="<?= base_url() ?>Servicios">Servicios</a> |
                     <a href="<?= base_url() ?>Promociones">Promociones</a> |
                     <a href="<?= base_url() ?>Protocolos" target="_blank">Protocolos</a> |
-                    <a href="http://200.37.146.94/webconsulta/wbfrmConsulta.aspx">Comprobantes Electronicos</a> |
-                    <a href="https://www.cosmicbowling.com.pe/cuponera/">Cupones Empresas</a> | <br>
+                    <a href="<?= base_url() ?>Comprobante">Comprobantes Electronicos</a> |
                     <a href="<?= base_url() ?>Guia-de-Seguridad" target="_blank">Guias de Seguridad</a>
                 </div>
             </div>

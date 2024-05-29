@@ -129,7 +129,7 @@ class Site extends CI_Controller
         </table>
         <p style='color: #6a0dad;'><b>Cosmic Bowling</b></p>
     </html>
-";
+    ";
 
 
     // Configurar la biblioteca de correo electrónico de CodeIgniter
@@ -176,7 +176,7 @@ class Site extends CI_Controller
     //Creando estructura de html para los datos
     $email_message = "
         	<h2>Datos de la Persona que presenta el Reclamo:</h2>
-	<table>
+	  <table>
 	  <tr>
 	    <td><b>Nombres :</b></td>
 	    <td> $first_name</td> <td><b>Apellidos :</b> $first_ape</td>
@@ -197,9 +197,9 @@ class Site extends CI_Controller
 	  	<td><b>Email :</b></td>
 	  	<td> $email_from</td> <td></td>
 	  </tr>
-	</table>
+	  </table>
 	    	<h2>Informaci&oacute;n General:</h2>
-	<table>
+	  <table>
 	  <tr>
 	    <td><b>Identificacion del bien contratado :</b></td>
 	    <td> $opcion</td> <td><b>Local :</b> $tipoderq</td> 
@@ -208,9 +208,9 @@ class Site extends CI_Controller
 	    <td><b>Monto Reclamado :</b></td>
 	    <td> $monto</td> <td><b>Descripcion :</b> $descripcion</td> <td></td>
 	  </tr>
-	</table>
+	  </table>
 			<h2>Detalle de su reclamo:</h2>
-	<table>
+	  <table>
 	  <tr>
 	    <td><b>Detalle :</b></td>
 	    <td> $subject</td> <td><b>Fecha de la solicitud :</b> $fecha</td> <td></td>
@@ -219,16 +219,16 @@ class Site extends CI_Controller
 	    <td><b>Detalle del Mensaje :</b></td>
 	    <td> $message</td> <td></td> <td></td>
 	  </tr>
-	</table>
+	  </table>
 
-	<table>
+	  <table>
 	  <tr>
 	    <td></td>
 	    <td><h2><b>Cosmic Bowling<h2></b></td> <td></td>
 	  </tr>
-	</table>
+	  </table>
 		
-	";
+	  ";
     $header = "MIME-Version: 1.0\r\n";
     $header = 'From: ' . $email_from . "\r\n" .
       $header .= 'Bcc: sistemas.st@lagranjavilla.com, adm@cosmicbowling.com.pe, operaciones.gs@lagranjavilla.com' . "\r\n";
@@ -246,5 +246,9 @@ class Site extends CI_Controller
     } else {
       echo "Por favor verifica la informacion";
     }
+  }
+
+  public function invoice(){
+    $this->load->view('invoice');
   }
 }

@@ -70,6 +70,9 @@ $route['Guia-de-Seguridad'] = 'site/securityguide';
 $route['Preguntas-Frecuentes'] = 'site/faqs';
 
 
+//ROUTES INVOINCE
+$route['Comprobante'] = 'site/invoice';
+
 //ROUTES MAIL
 
 $route['correo-reclamo'] = 'site/mailclaims';
