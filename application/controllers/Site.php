@@ -255,6 +255,35 @@ class Site extends CI_Controller
 
   public function mailInvoice()
   {
+
+    $recaptchaResponse = $this->input->post('g-recaptcha-response');
+    $secretKey = '6LcbIe0pAAAAACTFl14lMnkmllZ5A9CKnsnlk6cr';
+    $userIP = $this->input->ip_address();
+
+    // Verificar la respuesta del reCAPTCHA
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = array(
+      'secret' => $secretKey,
+      'response' => $recaptchaResponse,
+      'remoteip' => $userIP
+    );
+
+    $options = array(
+      'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+      )
+    );
+    $context  = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+    $responseData = json_decode($result);
+
+    if (!$responseData->success) {
+      echo json_encode(array('status' => 'error', 'message' => 'La verificación reCAPTCHA falló.'));
+      return;
+    }
+
     $dt = $this->input->post('documentType');
     $id = $this->input->post('invoiceDoc');
     $it = $this->input->post('invoiceType');

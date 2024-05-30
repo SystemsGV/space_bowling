@@ -132,12 +132,19 @@
 				}
 			})
 			.then((data) => {
-        Toast.fire({
-          icon: data.status,
-          title: data.message, // Mostrar el mensaje de error acumulado
-        });
+				if (data.status === "success") {
+					Toast.fire({
+						icon: data.status,
+						title: data.message,
+					});
 
-        this.reset();
+					this.reset();
+				} else {
+					Toast.fire({
+						icon: data.status,
+						title: data.message,
+					});
+				}
 			})
 			.catch((error) => {
 				console.error("Error:", error);

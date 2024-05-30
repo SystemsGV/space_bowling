@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" href="<?= base_url() ?>new/vendor/flatpickr/flatpickr.css">
   <link rel="stylesheet" href="<?= base_url() ?>new/invoice/invoice.css">
-	<link href='new/images/favicon.ico' rel='icon' type='image/x-icon'/>
+  <link href='new/images/favicon.ico' rel='icon' type='image/x-icon' />
 
 
 </head>
@@ -97,6 +97,10 @@
                 <i class="icon fa-solid fa-envelope"></i>
               </div>
 
+              <div class="input-wrap w-100">
+                <div class="g-recaptcha" data-sitekey="6LcbIe0pAAAAALij5qhBCOufXjcA5xVdkPJ4MmC0"></div>
+              </div>
+
               <div class="contact-buttons">
                 <button type="submit" class="btn">
                   <span class="button-text">Solicitar Comprobante</span>
@@ -107,6 +111,7 @@
               </div>
 
             </form>
+
           </div>
         </div>
         <div class="right">
@@ -130,6 +135,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
   <script src="<?= base_url() ?>new/invoice/invoice.js"></script>
 
