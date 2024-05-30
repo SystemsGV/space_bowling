@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>CosmicBowling | Solicitud de Comprobante</title>
 
   <link rel="stylesheet" href="<?= base_url() ?>new/vendor/flatpickr/flatpickr.css">
   <link rel="stylesheet" href="<?= base_url() ?>new/invoice/invoice.css">
