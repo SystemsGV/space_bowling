@@ -248,7 +248,91 @@ class Site extends CI_Controller
     }
   }
 
-  public function invoice(){
+  public function invoice()
+  {
     $this->load->view('invoice');
+  }
+
+  public function mailInvoice()
+  {
+    $dt = $this->input->post('documentType');
+    $id = $this->input->post('invoiceDoc');
+    $it = $this->input->post('invoiceType');
+    $sd = $this->input->post('invoiceDate');
+    $ia = $this->input->post('invoiceAmount');
+    $ie = $this->input->post('invoiceEmail');
+
+    // Dirección de correo electrónico del destinatario
+    $to = "contador@samitask.com";
+
+    // Asunto del correo electrónico
+    $subject = "Cosmic Bowling - Solicitud de Comprobante";
+
+    // Crear el mensaje de correo electrónico
+    $message = "
+    <html>
+    <head>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            th {
+                background-color: #6a0dad; /* Color morado */
+                color: white; /* Texto blanco */
+            }
+        </style>
+    </head>
+    <body>
+        <h2 style='color: #6a0dad;'>Detalles de la Solicitud de Comprobante</h2> 
+        <table>
+            <tr>
+                <th>Tipo de Documento:</th><td>$dt</td>
+            </tr>
+            <tr>
+                <th>Número de Documento:</th><td>$id</td>
+            </tr>
+            <tr>
+                <th>Tipo de Comprobante:</th><td>$it</td>
+            </tr>
+            <tr>
+                <th>Fecha de Compra:</th><td>$sd</td>
+            </tr>
+            <tr>
+                <th>Importe Total:</th><td>$ia</td>
+            </tr>
+            <tr>
+                <th>Correo Electrónico:</th><td>$ie</td>
+            </tr>
+        </table>
+        <p style='color: #6a0dad;'><b>Cosmic Bowling</b></p>
+    </html>
+    ";
+
+    $this->load->library('email');
+
+    $this->email->from($ie, 'Solicitud de Comprobante');
+    $this->email->to($to);
+    $this->email->subject($subject);
+    $this->email->message($message);
+
+    if ($this->email->send()) {
+      $response = array(
+        'status' => 'success',
+        'message' => 'El correo ha sido enviado correctamente.',
+      );
+    } else {
+      $response = array(
+        'status' => 'error',
+        'message' => 'Error al enviar el correo: ' . $this->email->print_debugger()
+      );
+    }
+
+    echo json_encode($response);
   }
 }

@@ -5,7 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <link rel="stylesheet" href="<?= base_url() ?>new/vendor/flatpickr/flatpickr.css">
   <link rel="stylesheet" href="<?= base_url() ?>new/invoice/invoice.css">
+	<link href='new/images/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
 </head>
 
 <body>
@@ -23,10 +28,8 @@
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link"></a>
         </li>
         <li>
-          <a href="#" class="nav-link"></a>
         </li>
         <li>
           <span class="nav-link theme-toggle">
@@ -45,38 +48,64 @@
           <div class="form-wrapper">
             <div class="contact-heading">
               <h1>Solicita Aquí tu Comprobante <span>.</span></h1>
-              <p class="text"> O comuníquese a través de : <a href="mailto:">invoice@cosmicbowling.com.pe</a></p>
+              <p class="text"> Se le respondera al correo que ingrese.</p>
             </div>
 
-            <form action="index.html" class="contact-form" autocomplete="off">
+            <form id="invoiceForm" class="contact-form" autocomplete="off">
 
-              <div class="input-wrap">
-                <input class="contact-input" autocomplete="off" name="First Name" type="text" required>
-                <label for="">Nombres</label>
+              <div class="input-wrap not-empty">
+                <select class="contact-input" name="documentType" id="documentType">
+                  <option value="RUC">RUC</option>
+                  <option value="DNI">DNI</option>
+                  <option value="Carnet de Extranjeria">Carnet de Extranjeria</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                </select>
+                <label>Tipo Documento</label>
                 <i class="icon fa-solid fa-address-card"></i>
               </div>
 
               <div class="input-wrap">
-                <input class="contact-input" autocomplete="off" name="Last Name" type="text" required>
-                <label for="">Apellidos</label>
-                <i class="icon fa-solid fa-address-card"></i>
+                <input class="contact-input" autocomplete="off" name="invoiceDoc" type="text">
+                <label for="">Nro Documento</label>
+                <i class="icon fa-solid fa-user"></i>
+              </div>
+
+              <div class="input-wrap not-empty  w-100">
+                <select class="contact-input" name="invoiceType" id="invoiceType">
+                  <option value="Factura">Factura</option>
+                  <option value="Boleta">Boleta</option>
+                </select>
+                <label>Tipo Comprobante</label>
+                <i class="icon fa-solid fa-layer-group"></i>
+              </div>
+
+              <div class="input-wrap not-empty">
+                <input class="contact-input" autocomplete="off" name="invoiceDate" id="invoiceDate" type="text" value="30/05/2024">
+                <label for="">Fecha de Compra</label>
+                <i class="icon fa-solid fa-calendar-days"></i>
+              </div>
+
+              <div class="input-wrap">
+                <input class="contact-input" autocomplete="off" name="invoiceAmount" id="invoiceAmount" type="text">
+                <label for="">Importe Total</label>
+                <i class="icon fa-solid fa-money-bills"></i>
               </div>
 
               <div class="input-wrap w-100">
-                <input class="contact-input" autocomplete="off" name="Email" type="email" required>
+                <input class="contact-input" autocomplete="off" name="invoiceEmail" type="email">
                 <label for="">Email</label>
                 <i class="icon fa-solid fa-envelope"></i>
               </div>
 
-              <div class="input-wrap textarea w-100">
-                <textarea class="contact-input" auto-complete="off" name="Message" required></textarea>
-                <label for="">Message</label>
-                <i class="icon fa-solid fa-inbox"></i>
+              <div class="contact-buttons">
+                <button type="submit" class="btn">
+                  <span class="button-text">Solicitar Comprobante</span>
+                  <span class="spinner" style="display: none;">
+                    <i class="fas fa-spinner fa-spin"></i> Enviando Correo
+                  </span>
+                </button>
               </div>
 
-              <div class="contact-buttons">
-                <input type="submit" value="Solicitar Comprobante" class="btn">
-              </div>
             </form>
           </div>
         </div>
@@ -99,7 +128,11 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <script src="<?= base_url() ?>new/invoice/invoice.js"></script>
+
 
 </body>
 

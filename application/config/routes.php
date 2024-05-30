@@ -72,6 +72,7 @@ $route['Preguntas-Frecuentes'] = 'site/faqs';
 
 //ROUTES INVOINCE
 $route['Comprobante'] = 'site/invoice';
+$route['sendInvoice'] = 'site/mailInvoice';
 
 //ROUTES MAIL
 

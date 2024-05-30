@@ -20,7 +20,7 @@ body {
 	--light-main-color: hsl(var(--main-hue), 91%, 55%);
 	--bg-color: #fff;
 	--light-text-color: #9ca7b6;
-	--input-text: #8c9aaf;
+	--input-text: #8897ac;
 	--input-shadow: hsla(var(--main-hue), 92%, 54%, 0.169);
 }
 
@@ -439,6 +439,10 @@ textarea.contact-input ~ .icon {
 	stroke-width: 1px;
 	stroke-dasharray: 6.5;
 	opacity: 0.8;
+}
+
+.spinner {
+  margin-left: 10px;
 }
 
 @media (max-width: 1000px) {
