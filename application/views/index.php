@@ -11,7 +11,7 @@
                 <ul class="rslides" id="slider">
                     <li><img src="<?=base_url()?>new/images/slide1.jpg" /></li>
                     <li><!--<a href="http://www.bowlinglarcomar.com/promociones.php">--><img src="<?=base_url()?>new/images/slide5.jpg" /><!--</a>--></li>
-                    <li><img src="<?=base_url()?>new/images/slide2.jpg" /></li>
+                    <li><img src="<?=base_url()?>new/images/BOWLING.jpg" /></li>
 
                 </ul>
             </div>
