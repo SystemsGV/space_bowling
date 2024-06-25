@@ -383,12 +383,12 @@ textarea.contact-input ~ .icon {
 	position: absolute;
 	height: 130%;
 	left: 65%;
-	top: 50%;
+	top: 40%;
 	transform: translate(-50%, -50%);
 }
 
 .dark .image-wrapper .img {
-	transform: translate(-50%, -50%) scale(1.5);
+	transform: translate(-50%, -50%) scale(1.2);
 }
 
 .wave-wrap {
