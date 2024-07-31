@@ -147,7 +147,7 @@
                 <h2>PISTA VIP</h2>
 
                 <p>La pista vip es privada, exclusiva y diferenciada. Tiene un servicio personalizado y un espacio único.</p>
-                <h2 style="font-size:11px; font-family:Arial, Helvetica, sans-serif"><img src="new/images/pistas.jpg" width="100%"></h2>
+                <h2 style="font-size:11px; font-family:Arial, Helvetica, sans-serif"><img src="new/images/BOWLING.jpg" width="100%"></h2>
               </div>
 
               <div id="billas" class="tab-pane fade">
