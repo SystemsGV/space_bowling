@@ -31,7 +31,7 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>new/css/bootstrap.min.css">
 
-    <link href='<?= base_url() ?>new/images/favicon.ico' rel='icon' type='image/x-icon' />
+    <link href='<?= base_url() ?>new/images/logo.png' rel='icon' type='image/x-icon' />
     <style>
         .loader {
             position: fixed;
