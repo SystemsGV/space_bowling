@@ -69,22 +69,25 @@
 
             <div class="upper-nav">
                 <div class="container">
-                    <div class="row" style="justify-content: center;align-items: center;">
-                        <div class="col-lg-12">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-lg-12 text-center">
 
                             <div id="logo">
-                                <center><a href="index.php"><img src="<?= base_url() ?>new/images/logo.png"></a>
-                                    <?php if ($img) { ?>
-                                        <img src="<?= base_url() ?>img/a1.png" width="100px" height="100px" style="margin-top: 42px;">
-                                    <?php } ?>
-                                </center>
+                                <a href="index.php">
+                                    <img src="<?= base_url() ?>new/images/logo.png" alt="Logo" class="img-fluid">
+                                </a>
+
+                                <?php if ($img) { ?>
+                                    <img src="<?= base_url() ?>img/a1.png" alt="Imagen Adicional" width="100" height="100" style="margin-top: 42px;">
+                                <?php } ?>
+
                             </div>
 
                         </div>
-
                     </div>
                 </div>
             </div>
+
             <!-- <div id="search">
 			<div class="button-search"></div>
 			<input type="text" value="Search..." onfocus="if (this.value == &#39;Search...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search...&#39;;}">
@@ -97,13 +100,12 @@
             <div class="menu">
                 <ul class="list_header">
                     <li class=""><a href="<?= base_url() ?>">Inicio</a></li>
-                    <li class=""><a href="<?= base_url() ?>Quienes-Somos">Quienes Somos</a></li>
                     <li class=""><a href="<?= base_url() ?>Instalaciones">Instalaciones</a></li>
                     <li class=""><a href="<?= base_url() ?>Tarifa">Tarifa</a></li>
                     <li class=""><a href="<?= base_url() ?>Servicios">Servicios</a></li>
                     <li class=""><a href="<?= base_url() ?>Contactenos">Contacto</a></li>
                     <li class=""><a href="<?= base_url() ?>Preguntas-Frecuentes">Preguntas Frecuentes</a></li>
-                    <!--	<li><a href="https://sites.google.com/view/protocolobw/inicio">Protocolo De Bioseguridad</a></li>-->
+                    <li><a href="https://reservascosmicbowling.com.pe">Reserva Aquí <i class="fa fa-calendar fa-1x" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
 
@@ -118,6 +120,7 @@
                     <option value="<?= base_url() ?>Servicios">Servicios</option>
                     <option value="<?= base_url() ?>Contactenos">Contacto</option>
                     <option value="<?= base_url(); ?>Preguntas-Frecuentes">Preguntas Frecuentes</option>
+                    <option value="https://reservascosmicbowling.com.pe">Reserva Aquí</option>
                 </select>
             </div>
         </div>
