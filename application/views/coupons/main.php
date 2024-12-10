@@ -367,8 +367,12 @@
 				$(this).attr('disabled', true);
 				var nro = $("#cupon").val();
 				var fullData = $("form").serialize() + "&cupon=" + nro;
-				$("#loader").removeClass("hidden");
+				console.log(fullData);
+				
+				$("#loader").removeClass("hidden");				
 				$.post('generateCupon', fullData, function(data) {
+					return console.log(data);
+					
 					if ($.trim(data) === "OK") {
 						$("#loader").addClass("hidden");
 						$("#myModalExito").modal('show', {

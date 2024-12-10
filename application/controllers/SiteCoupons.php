@@ -76,6 +76,10 @@ class SiteCoupons extends CI_Controller
 
 	public function generateCupon()
 	{
+		$customer = $this->input->post('customer');
+		$email = $this->input->post('email');
+		$dni = $this->input->post('dni');
+		
 		$idCustomer = $_SESSION['session_cliente']; /*Id de cliente logeado*/
 
 		$path = "https://reservascosmicbowling.com.pe/cupones/";
@@ -106,7 +110,7 @@ class SiteCoupons extends CI_Controller
 								<head>
 										<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-										<title>La Granja Villa</title>
+										<title>Cosmic Bowling</title>
 										<style>
 												body {
 														font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -148,7 +152,7 @@ class SiteCoupons extends CI_Controller
 														</tr>
 														<tr>
 																<p>
-																		<td align="left" style="font-size:15px;"><b>client:</b> ' . $this->input->post('customer') . ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>DNI:</b> ' . $this->input->post('dni') . ' </td>
+																		<td align="left" style="font-size:15px;"><b>client:</b> ' . $customer . ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>DNI:</b> ' . $dni . ' </td>
 										
 														</tr>
 												<br /><br />
@@ -198,14 +202,14 @@ class SiteCoupons extends CI_Controller
 			}
 			sleep(3);
 			if (file_exists("download/{$nroCupon}.pdf")) {
-				$cliente->guardarClienteFoto($idCustomer, $this->input->post('customer'), $this->input->post('email'), $this->input->post('dni'), $nroCupon);
+				$cliente->guardarClienteFoto($idCustomer, $customer, $email, $dni, $nroCupon);
 				/**** Genere to email ****/
 				$from = "sistemas@cosmicbowling.com.pe";
 				$name = "Reservas Cosmic Bowling";
-				$to   = $this->input->post('email');
+				$to   = $email;
 				//$cc   = "ljruizperalta@gmail.com, lvega@websconsulting.com";    
 				$subject = utf8_decode("Cupón de Descuento");
-				$body    = utf8_decode("Buen día, <strong>" . ucwords($this->input->post('customer')) . "</strong><br/><br/>
+				$body    = utf8_decode("Buen día, <strong>" . ucwords($customer) . "</strong><br/><br/>
                 Adjunto encontrará su cupón, por favor imprimirlo al apersonarse a nuestras sedes.<br/><br/>                
                 Muchas gracias<br/>
                 La Granja Villa");
