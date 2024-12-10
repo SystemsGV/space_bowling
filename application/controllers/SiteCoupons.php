@@ -2,6 +2,9 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 class SiteCoupons extends CI_Controller
 {
 	public function __construct()
@@ -10,6 +13,8 @@ class SiteCoupons extends CI_Controller
 		$this->load->model('Cliente_model');
 		$this->load->library('session');
 		$this->load->database();
+		require_once APPPATH . 'third_party/dompdf/autoload.inc.php';
+		require_once APPPATH . 'third_party/sendmail/class.phpmailer.php';
 	}
 	public function index()
 	{
@@ -79,7 +84,7 @@ class SiteCoupons extends CI_Controller
 		$customer = $this->input->post('customer');
 		$email = $this->input->post('email');
 		$dni = $this->input->post('dni');
-		
+
 		$idCustomer = $_SESSION['session_cliente']; /*Id de cliente logeado*/
 
 		$path = "https://reservascosmicbowling.com.pe/cupones/";
@@ -88,7 +93,7 @@ class SiteCoupons extends CI_Controller
 
 		/* create instance of client */
 		$cliente = new Cliente_model();
-		$client = $cliente->obtener_cliente($idCustomer);		
+		$client = $cliente->obtener_cliente($idCustomer);
 
 		/*** Generation of cupon for user ***/
 		$day     = date('d/m/Y');
@@ -96,14 +101,16 @@ class SiteCoupons extends CI_Controller
 		$precode = $days[0] . $days[1] . $days[2];
 		$nroCode = $cliente->getCountCode($idCustomer, $precode);
 		$totalCupon = $nroCode + 1;
+
+
+
 		/* create number of cupom */
 		$nroCupon   = $precode . $idCustomer . "-" . $totalCupon;
 		if (!empty($totalCupon)) {
 			for ($i = 1; $i <= 1; $i++) {
-				$imagen = '<img src="http://generator.barcodetools.com/barcode.png?gen=0&data=' . $nroCupon . '&bcolor=FFFFFF&fcolor=000000&tcolor=000000&fh=14&bred=0&w2n=2.5&xdim=2&w=70px&h=220px&debug=1&btype=7&angle=90&quiet=1&balign=2&talign=0&guarg=1&text=1&tdown=1&stst=1&schk=0&cchk=1&ntxt=1&c128=0">';
+				$imagen = '<img src="data:image/png;base64,' . base64_encode('http://generator.barcodetools.com/barcode.png?gen=0&data=' . $nroCupon . '&bcolor=FFFFFF&fcolor=000000&tcolor=000000&fh=14&bred=0&w2n=2.5&xdim=2&w=70px&h=220px&debug=1&btype=7&angle=90&quiet=1&balign=2&talign=0&guarg=1&text=1&tdown=1&stst=1&schk=0&cchk=1&ntxt=1&c128=0') . '">';
 
-				if ($client->txt_nombre8 == "3") {
-					$head = '
+				$head = '
 								<!DOCTYPE html>
 								<html lang="es">
 
@@ -136,7 +143,7 @@ class SiteCoupons extends CI_Controller
 								</head>
 
 								<body>
-										<table style="background: url(\'../admin/upload/cupon/' . $client->txt_email . '\'); background-repeat:no-repeat; height:365px;">
+										<table style="background: url(\'https://lagranjavilla.com/cupones/admin/upload/cupon/' . $client->txt_email . '\'); background-repeat:no-repeat; height:365px;">
 												<tr>
 														<td style="width:25px;">&nbsp;</td>+
 														<td style="text-align:left;">' . $imagen . '
@@ -152,7 +159,7 @@ class SiteCoupons extends CI_Controller
 														</tr>
 														<tr>
 																<p>
-																		<td align="left" style="font-size:15px;"><b>client:</b> ' . $customer . ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>DNI:</b> ' . $dni . ' </td>
+																		<td align="left" style="font-size:15px;"><b>CLIENTE:</b> ' . $customer . ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>DNI:</b> ' . $dni . ' </td>
 										
 														</tr>
 												<br /><br />
@@ -183,17 +190,21 @@ class SiteCoupons extends CI_Controller
 										</table>
 				
 										';
-					$contraportada = '';
-					$footer = '
+				$contraportada = '';
+				$footer = '
 								</body>
 
 								</html>';
-				}
 
 
 				$content = $head . $contraportada . $footer;
-				$dompdf = new DOMPDF();
-				$dompdf->load_html($content);
+
+				$options = new Options();
+				$options->set('isHtml5ParserEnabled', true);
+				$options->set('isPhpEnabled', true);
+
+				$dompdf = new Dompdf($options);
+				$dompdf->loadHtml($content);
 				$dompdf->render();
 				$output = $dompdf->output();
 				file_put_contents("download/{$nroCupon}.pdf", $output);
@@ -202,7 +213,6 @@ class SiteCoupons extends CI_Controller
 			}
 			sleep(3);
 			if (file_exists("download/{$nroCupon}.pdf")) {
-				$cliente->guardarClienteFoto($idCustomer, $customer, $email, $dni, $nroCupon);
 				/**** Genere to email ****/
 				$from = "sistemas@cosmicbowling.com.pe";
 				$name = "Reservas Cosmic Bowling";
