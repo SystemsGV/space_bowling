@@ -78,3 +78,10 @@ $route['sendInvoice'] = 'site/mailInvoice';
 
 $route['correo-reclamo'] = 'site/mailclaims';
 $route['correo-contactanos'] = 'site/send_contact';
+
+// ROUTES COUPONS
+$route['cupones'] = 'sitecoupons';
+$route['login-client'] = 'sitecoupons/login';
+$route['logout-client'] = 'sitecoupons/logout';
+$route['inicio'] = 'sitecoupons/main';
+$route['generateCupon'] = 'sitecoupons/generateCupon';
