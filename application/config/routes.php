@@ -81,7 +81,7 @@ $route['correo-contactanos'] = 'site/send_contact';
 
 // ROUTES COUPONS
 $route['cupones'] = 'sitecoupons';
-$route['login-client'] = 'sitecoupons/login';
-$route['logout-client'] = 'sitecoupons/logout';
-$route['inicio'] = 'sitecoupons/main';
-$route['generateCupon'] = 'sitecoupons/generateCupon';
+$route['cupones/login-client'] = 'sitecoupons/login';
+$route['cupones/logout-client'] = 'sitecoupons/logout';
+$route['cupones/inicio'] = 'sitecoupons/main';
+$route['cupones/generateCupon'] = 'sitecoupons/generateCupon';

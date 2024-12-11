@@ -367,12 +367,9 @@
 				$(this).attr('disabled', true);
 				var nro = $("#cupon").val();
 				var fullData = $("form").serialize() + "&cupon=" + nro;
-				console.log(fullData);
 				
 				$("#loader").removeClass("hidden");				
-				$.post('generateCupon', fullData, function(data) {
-					return console.log(data);
-					
+				$.post('generateCupon', fullData, function(data) {					
 					if ($.trim(data) === "OK") {
 						$("#loader").addClass("hidden");
 						$("#myModalExito").modal('show', {
@@ -385,6 +382,10 @@
 						$("#customer").val('');
 						$("#email").val('');
 						$("#btnCupon").attr('disabled', false);
+						setTimeout(function() {
+								location.reload();
+							}, 3000);
+
 						// $.post('controller/prc_lastdata.php', function(datos) {
 						// 	var views = datos.split(',');
 						// 	$("#activity").html(views[0]);

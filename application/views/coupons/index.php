@@ -106,9 +106,9 @@
     $(document).ready(function(){
         $("#btnSuccess").click(function(){
             var formValues = $("form").serialize();
-            $.post('login-client', formValues, function(data){
+            $.post('cupones/login-client', formValues, function(data){
                 if($.trim(data) === "OK"){					
-                    $(location).attr('href', 'inicio');
+                    $(location).attr('href', 'cupones/inicio');
                 }else{
                     //alert("Usuario y/o contraseña son incorrectos.");
                     $("#error").removeClass('hidden');
