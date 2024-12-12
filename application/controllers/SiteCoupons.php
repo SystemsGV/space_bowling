@@ -119,7 +119,7 @@ class SiteCoupons extends CI_Controller
 			sleep(3);
 			if (file_exists("download/{$nroCupon}.pdf")) {
 
-				// $cliente->guardarClienteFoto($idCustomer, $customer, $email, $dni, $nroCupon);
+				$cliente->guardarClienteFoto($idCustomer, $customer, $email, $dni, $nroCupon);
 
 				/**** Genere to email ****/
 				$from = "sistemas@cosmicbowling.com.pe";

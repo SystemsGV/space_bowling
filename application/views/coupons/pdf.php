@@ -79,12 +79,6 @@ $barcodeimg = "data:image/png;base64," . base64_encode(file_get_contents($barcod
 	<table>
 		<tr class="tr-info">
 			<td>
-				¡Estamos felices de que hayas elegido La Granja Villa para pasar tu día! Nuestro objetivo es que vivas una experiencia entretenida y educativa al lado de tus seres queridos. Lee las siguientes indicaciones, por favor. te permitirán prepararte para el día de tu visita:<br>
-				La persona que porte este cupón deberá tomar en cuenta que todas las coordinaciones se deberán de tratar directamente con la empresa a cargo.<br><br>
-			</td>
-		</tr>
-		<tr class="tr-info">
-			<td>
 				1. El cupón con la promoción que entregó EL ESTABLECIMIENTO debe presentarse en el módulo de caja del
 				COSMIC BOWLING junto con el fotocheck y/o DNI del trabajador beneficiado para hacer válida la promoción, todo
 				esto dentro de los plazos establecidos en el presente convenio. Luego el trabajador y sus acompañantes deberán
