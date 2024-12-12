@@ -218,7 +218,7 @@
 				<p>Cosmic Bowling les da la bienvenida, usted ha sido beneficiado con cupones de descuento, los mismos que podrán ser generados por este medio, el detalle de los cupones asignados a usted son:</p>
 
 				<h4 style="margin-top:5px;">Cupones Disponibles:</h4>
-				<h2 style="margin-top:10px;"><?php echo $txt_nombre2 ?></h2>
+				<h2 style="margin-top:10px;"><?php echo $txt_nombre2 - $totalCupones ?></h2>
 
 				<h4 style="margin-top:5px;">Fecha de Vencimiento:</h4>
 				<h2 style="margin-top:10px;"><?php echo $txt_nombre4 ?></h2>

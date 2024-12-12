@@ -135,10 +135,10 @@ class SiteCoupons extends CI_Controller
 
 				$mail = new PHPMailer();
 				//Server settings
-				$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+				$mail->SMTPDebug = SMTP::DEBUG_SERVER;              //Enable verbose debug output
 				$mail->isSMTP();                                            //Send using SMTP
 				$mail->Host       = 'mail.cosmicbowling.com.pe';                     //Set the SMTP server to send through
-				$mail->SMTPAuth   = false;                                   //Enable SMTP authentication
+				$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
 				$mail->Username   = 'sistemas@cosmicbowling.com.pe';                     //SMTP username
 				$mail->Password   = '3JvZBRlUpilP';                               //SMTP password
 				// $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
