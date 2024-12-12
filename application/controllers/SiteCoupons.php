@@ -90,7 +90,7 @@ class SiteCoupons extends CI_Controller
 		$customer = $this->input->post('customer');
 		$email = $this->input->post('email');
 		$dni = $this->input->post('dni');
-				
+
 		$cliente = new Cliente_model();
 		$client = $cliente->obtener_cliente($idCustomer);
 
@@ -135,52 +135,47 @@ class SiteCoupons extends CI_Controller
 
 
 				$mail = new PHPMailer();
-				try {
-					//Server settings
-					$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-					$mail->isSMTP();                                            //Send using SMTP
-					$mail->Host       = 'mail.cosmicbowling.com.pe';                     //Set the SMTP server to send through
-					$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-					$mail->Username   = 'sistemas@cosmicbowling.com.pe';                     //SMTP username
-					$mail->Password   = '3JvZBRlUpilP';                               //SMTP password
-					$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-					$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-				
-					//Recipients
-					$mail->setFrom($from);
-					$mail->addAddress($to);               //Name is optional
-					// $mail->addReplyTo('info@example.com', 'Information');
-					// $mail->addCC('cc@example.com');
-					// $mail->addBCC('bcc@example.com');
-				
-					//Attachments
-					$mail->addAttachment("./download/{$nroCupon}.pdf");         //Add attachments
-				
-					//Content
-					$mail->isHTML(true);                                  //Set email format to HTML
-					$mail->Subject = $subject;
-					$mail->Body    = $body;
-					// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-				
-					$exito = $mail->send();
-					$intentos = 1;
-					while ((!$exito) && ($intentos < 2)) {
-						sleep(5);
-						$exito = $mail->Send();
-						$intentos = $intentos + 1;
-					}
-					if (!$exito) {
-						$content = "Mailer Error: " . $mail->ErrorInfo;
-					} else {
-						$content = '<br><div class="text-center">Por favor verifica su correo para activar su cuenta y poder iniciar sessión</div><br>';
-					}
-				} catch (Exception $e) {
-					echo "OK";
-					// echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+				//Server settings
+				$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+				$mail->isSMTP();                                            //Send using SMTP
+				$mail->Host       = 'mail.cosmicbowling.com.pe';                     //Set the SMTP server to send through
+				$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+				$mail->Username   = 'sistemas@cosmicbowling.com.pe';                     //SMTP username
+				$mail->Password   = '3JvZBRlUpilP';                               //SMTP password
+				$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+				$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+				//Recipients
+				$mail->setFrom($from);
+				$mail->addAddress($to);               //Name is optional
+				// $mail->addReplyTo('info@example.com', 'Information');
+				// $mail->addCC('cc@example.com');
+				// $mail->addBCC('bcc@example.com');
+
+				//Attachments
+				$mail->addAttachment("./download/{$nroCupon}.pdf");         //Add attachments
+
+				//Content
+				$mail->isHTML(true);                                  //Set email format to HTML
+				$mail->Subject = $subject;
+				$mail->Body    = $body;
+				// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+				$exito = $mail->send();
+				$intentos = 1;
+				while ((!$exito) && ($intentos < 2)) {
+					sleep(5);
+					$exito = $mail->Send();
+					$intentos = $intentos + 1;
+				}
+				if (!$exito) {
+					$content = "Mailer Error: " . $mail->ErrorInfo;
+				} else {
+					$content = '<br><div class="text-center">Por favor verifica su correo para activar su cuenta y poder iniciar sessión</div><br>';
 				}
 			}
 			echo "OK";
-		}else{
+		} else {
 			echo 'FAIL';
 		}
 	}
