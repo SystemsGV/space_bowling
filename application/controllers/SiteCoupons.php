@@ -175,7 +175,8 @@ class SiteCoupons extends CI_Controller
 						$content = '<br><div class="text-center">Por favor verifica su correo para activar su cuenta y poder iniciar sessión</div><br>';
 					}
 				} catch (Exception $e) {
-					echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+					echo "OK";
+					// echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 				}
 			}
 			echo "OK";
