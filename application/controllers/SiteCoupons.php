@@ -14,8 +14,6 @@ class SiteCoupons extends CI_Controller
 		$this->load->model('Cliente_model');
 		$this->load->library('session');
 		$this->load->database();
-		require_once APPPATH . 'third_party/dompdf/autoload.inc.php';
-		require_once APPPATH . 'third_party/sendmail/class.phpmailer.php';
 	}
 	public function index()
 	{

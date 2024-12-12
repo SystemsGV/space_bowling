@@ -80,8 +80,8 @@ $route['correo-reclamo'] = 'site/mailclaims';
 $route['correo-contactanos'] = 'site/send_contact';
 
 // ROUTES COUPONS
-$route['cupones'] = 'sitecoupons';
-$route['cupones/login-client'] = 'sitecoupons/login';
-$route['cupones/logout-client'] = 'sitecoupons/logout';
-$route['cupones/inicio'] = 'sitecoupons/main';
-$route['cupones/generateCupon'] = 'sitecoupons/generateCupon';
+$route['cupones'] = 'siteCoupons';
+$route['cupones/login-client'] = 'siteCoupons/login';
+$route['cupones/logout-client'] = 'siteCoupons/logout';
+$route['cupones/inicio'] = 'siteCoupons/main';
+$route['cupones/generateCupon'] = 'siteCoupons/generateCupon';
