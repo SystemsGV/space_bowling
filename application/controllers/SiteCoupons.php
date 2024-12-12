@@ -49,12 +49,8 @@ class SiteCoupons extends CI_Controller
 
 	public function logout()
 	{
-		if (session_start()) {
-			session_destroy();
-			redirect('cupones');
-		} else {
-			redirect('cupones');
-		}
+		session_destroy();
+		redirect('cupones/inicio');
 	}
 
 	public function main()
@@ -128,7 +124,7 @@ class SiteCoupons extends CI_Controller
 				//$cc   = "ljruizperalta@gmail.com, lvega@websconsulting.com";    
 				$subject = utf8_decode("Cupón de Descuento");
 				$body    = utf8_decode("Buen día, <strong>" . ucwords($customer) . "</strong><br/><br/>
-                Adjunto encontrará su cupón, por favor imprimirlo al apersonarse a nuestras sedes.<br/><br/>                
+                Adjunto encontrará su cupón, por favor imprimirlo al apersonarse a nuestra sede.<br/><br/>                
                 Muchas gracias<br/>
                 Cosmic Bowling");
 
