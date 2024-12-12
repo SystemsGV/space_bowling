@@ -282,11 +282,11 @@
 
 					<div class="form-group icon">
 						<div class="col-sm-offset-3 col-sm-9">
-							<? if (($txt_nombre2 - $totalCupones) <= 0) { ?>
-								<button id="btNoCupon" type="button" class="btn btn-primary" disabled><i class="fa fa-paper-plane-o"></i>0 Cupones Disponibles</button>
-							<? } else { ?>
-								<button id="btnCupon" type="button" class="btn btn-primary" onclick="myFunction1();"><i class="fa fa-paper-plane-o"></i>Generar Cupones</button>
-							<? } ?>
+							
+								<button id="btnCupon" type="button" class="btn btn-primary" onclick="myFunction1();"
+									<?php if (($txt_nombre2 - $totalCupones) <= 0) { echo 'disabled'; } ?>
+								><i class="fa fa-paper-plane-o"></i>Generar Cupones</button>
+							
 						</div>
 						<div class="col-sm-3">
 							<div id="loader" class="hidden text-right"></div>

@@ -1,9 +1,10 @@
 <?php
 
-defined('BASEPATH') or exit('No direct script access allowed');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-use Dompdf\Dompdf;
-use Dompdf\Options;
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class SiteCoupons extends CI_Controller
 {
@@ -83,14 +84,14 @@ class SiteCoupons extends CI_Controller
 	{
 
 		$this->load->library('dompdf_lib');
+		require_once __DIR__ . '/../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+		require_once __DIR__ . '/../../vendor/phpmailer/phpmailer/src/SMTP.php';
+		require_once __DIR__ . '/../../vendor/phpmailer/phpmailer/src/Exception.php';
 		$idCustomer = $_SESSION['session_cliente']; /*Id de cliente logeado*/
 
 		$customer = $this->input->post('customer');
 		$email = $this->input->post('email');
 		$dni = $this->input->post('dni');
-		$path = "http://www.lagranjavilla.com/cupones/";
-		$host = "http://www.lagranjavilla.com/cupones/";
-		$ruta = "/home3/lagranja/public_html/cupones/";
 				
 		$cliente = new Cliente_model();
 		$client = $cliente->obtener_cliente($idCustomer);
@@ -132,32 +133,51 @@ class SiteCoupons extends CI_Controller
 				$body    = utf8_decode("Buen día, <strong>" . ucwords($customer) . "</strong><br/><br/>
                 Adjunto encontrará su cupón, por favor imprimirlo al apersonarse a nuestras sedes.<br/><br/>                
                 Muchas gracias<br/>
-                La Granja Villa");
-				$mail = new phpmailer();
-				$mail->PluginDir = $path;
-				$mail->Mailer = "mail";
-				$mail->Host = $host;
-				$mail->From = $from;
-				$mail->FromName = $name;
-				$mail->Sender = $from;
-				$mail->Timeout = 30;
-				$mail->AddAddress($to);
-				$mail->Subject = $subject;
-				$mail->IsHTML(true);
-				$mail->AddAttachment("./download/{$nroCupon}.pdf");
-				$mail->Body = $body;
-				//$mail->AddBCC($cc);
-				$exito = $mail->Send();
-				$intentos = 1;
-				while ((!$exito) && ($intentos < 2)) {
-					sleep(5);
-					$exito = $mail->Send();
-					$intentos = $intentos + 1;
-				}
-				if (!$exito) {
-					$content = "Mailer Error: " . $mail->ErrorInfo;
-				} else {
-					$content = '<br><div class="text-center">Por favor verifica su correo para activar su cuenta y poder iniciar sessión</div><br>';
+                Cosmic Bowling");
+
+
+				$mail = new PHPMailer();
+				try {
+					//Server settings
+					$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+					$mail->isSMTP();                                            //Send using SMTP
+					$mail->Host       = 'mail.cosmicbowling.com.pe';                     //Set the SMTP server to send through
+					$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+					$mail->Username   = 'sistemas@cosmicbowling.com.pe';                     //SMTP username
+					$mail->Password   = '3JvZBRlUpilP';                               //SMTP password
+					$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+					$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+				
+					//Recipients
+					$mail->setFrom($from);
+					$mail->addAddress($to);               //Name is optional
+					// $mail->addReplyTo('info@example.com', 'Information');
+					// $mail->addCC('cc@example.com');
+					// $mail->addBCC('bcc@example.com');
+				
+					//Attachments
+					$mail->addAttachment("./download/{$nroCupon}.pdf");         //Add attachments
+				
+					//Content
+					$mail->isHTML(true);                                  //Set email format to HTML
+					$mail->Subject = $subject;
+					$mail->Body    = $body;
+					// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+				
+					$exito = $mail->send();
+					$intentos = 1;
+					while ((!$exito) && ($intentos < 2)) {
+						sleep(5);
+						$exito = $mail->Send();
+						$intentos = $intentos + 1;
+					}
+					if (!$exito) {
+						$content = "Mailer Error: " . $mail->ErrorInfo;
+					} else {
+						$content = '<br><div class="text-center">Por favor verifica su correo para activar su cuenta y poder iniciar sessión</div><br>';
+					}
+				} catch (Exception $e) {
+					echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 				}
 			}
 			echo "OK";
