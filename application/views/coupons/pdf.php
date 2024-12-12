@@ -35,10 +35,10 @@
 <?php
 $nombreImagen = "assets/upload/cupon/prueba.png";
 $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nombreImagen));
-$barcode = "http://generator.barcodetools.com/barcode.png?gen=0&data=22122023800-" . $nroCupon . "&bcolor=FFFFFF&fcolor=000000&tcolor=000000&fh=14&bred=0&w2n=2.5&xdim=2&w=70px&h=220px&debug=1&btype=7&angle=90&quiet=1&balign=2&talign=0&guarg=1&text=1&tdown=1&stst=1&schk=0&cchk=1&ntxt=1&c128=0";
-$barcodeImageLocalPath = 'assets/upload/cupon/barcode.png';
+// $barcode = "http://generator.barcodetools.com/barcode.png?gen=0&data=22122023800-" . $nroCupon . "&bcolor=FFFFFF&fcolor=000000&tcolor=000000&fh=14&bred=0&w2n=2.5&xdim=2&w=70px&h=220px&debug=1&btype=7&angle=90&quiet=1&balign=2&talign=0&guarg=1&text=1&tdown=1&stst=1&schk=0&cchk=1&ntxt=1&c128=0";
+$barcodeImageLocalPath = "assets/upload/cupon/barcode.png";
 
-file_put_contents($barcodeImageLocalPath, file_get_contents($barcode));
+// file_put_contents($barcodeImageLocalPath, file_get_contents($barcode));
 $barcodeimg = "data:image/png;base64," . base64_encode(file_get_contents($barcodeImageLocalPath));
 
 ?>

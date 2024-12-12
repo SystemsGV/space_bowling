@@ -115,16 +115,15 @@ class SiteCoupons extends CI_Controller
 			$html = $this->load->view('coupons/pdf', $data, true);
 
 			$filename = $nroCupon . '.pdf';
-			$filePath = $this->dompdf_lib->generar_pdf($html, $filename);
-			echo $filePath;
+			$this->dompdf_lib->generar_pdf($html, $filename);
 			sleep(3);
 			if (file_exists("download/{$nroCupon}.pdf")) {
 
-				$cliente->guardarClienteFoto($idCustomer, $customer, $email, $dni, $nroCupon);
+				// $cliente->guardarClienteFoto($idCustomer, $customer, $email, $dni, $nroCupon);
 
 				/**** Genere to email ****/
 				$from = "sistemas@cosmicbowling.com.pe";
-				$name = "Reservas Cosmic Bowling";
+				$name = "Cosmic Bowling";
 				$to   = $email;
 				//$cc   = "ljruizperalta@gmail.com, lvega@websconsulting.com";    
 				$subject = utf8_decode("Cupón de Descuento");
@@ -147,7 +146,7 @@ class SiteCoupons extends CI_Controller
 
 				//Recipients
 				$mail->setFrom($from);
-				$mail->addAddress($to);               //Name is optional
+				$mail->addAddress($to, $name);               //Name is optional
 				// $mail->addReplyTo('info@example.com', 'Information');
 				// $mail->addCC('cc@example.com');
 				// $mail->addBCC('bcc@example.com');

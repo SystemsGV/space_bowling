@@ -369,8 +369,10 @@
 				var fullData = $("form").serialize() + "&cupon=" + nro;
 				
 				$("#loader").removeClass("hidden");				
-				$.post('generateCupon', fullData, function(data) {					
-					if ($.trim(data) === "OK") {
+				$.post('generateCupon', fullData, function(data) {								
+					if ($.trim(data) == "FAIL") {
+						$("#myModalError").modal('show');
+					} else {
 						$("#loader").addClass("hidden");
 						$("#myModalExito").modal('show', {
 							buttons: [{
@@ -395,8 +397,6 @@
 						// 	}, 3000);
 						// });
 
-					} else {
-						$("#myModalError").modal('show');
 					}
 				});
 			}
