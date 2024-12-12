@@ -106,6 +106,7 @@ class SiteCoupons extends CI_Controller
 				'dni' => $dni,
 				'nombre' => $client->txt_nombre,
 				'ruc' => $client->txt_direccion,
+				'txt_email' => $client->txt_email,
 				'nroCupon' => $nroCupon,
 			];
 			$html = $this->load->view('coupons/pdf', $data, true);
