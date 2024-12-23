@@ -33,10 +33,10 @@
 	</style>
 </head>
 <?php
-$nombreImagen = "assets/upload/cupon/prueba.png";
+$nombreImagen = "assets/upload/cupon/". $txt_email;
 $imagenBase64 = "data:image/png;base64," . base64_encode(file_get_contents($nombreImagen));
-$barcode = "http://generator.barcodetools.com/barcode.png?gen=0&data=22122023800-" . $nroCupon . "&bcolor=FFFFFF&fcolor=000000&tcolor=000000&fh=14&bred=0&w2n=2.5&xdim=2&w=70px&h=220px&debug=1&btype=7&angle=90&quiet=1&balign=2&talign=0&guarg=1&text=1&tdown=1&stst=1&schk=0&cchk=1&ntxt=1&c128=0";
-$barcodeImageLocalPath = 'assets/upload/cupon/barcode.png';
+$barcode = "http://generator.barcodetools.com/barcode.png?gen=0&data=" . $nroCupon . "&bcolor=FFFFFF&fcolor=000000&tcolor=000000&fh=14&bred=0&w2n=2.5&xdim=2&w=70px&h=220px&debug=1&btype=7&angle=90&quiet=1&balign=2&talign=0&guarg=1&text=1&tdown=1&stst=1&schk=0&cchk=1&ntxt=1&c128=0";
+$barcodeImageLocalPath = "assets/upload/cupon/barcode.png";
 
 file_put_contents($barcodeImageLocalPath, file_get_contents($barcode));
 $barcodeimg = "data:image/png;base64," . base64_encode(file_get_contents($barcodeImageLocalPath));
@@ -68,21 +68,15 @@ $barcodeimg = "data:image/png;base64," . base64_encode(file_get_contents($barcod
 		</tr>
 		<tr>
 			<td>
-				<b>CLIENTE:</b> <?= $nombre ?> <br><br>
+				<b>CLIENTE:</b> <?= $customer ?> <br><br>
 			</td>
 			<td style="text-align:left;">
-				<b>DNI:</b> <?= $ruc ?> <br><br>
+				<b>DNI:</b> <?= $dni ?> <br><br>
 			</td>
 		</tr>
 
 	</table>
 	<table>
-		<tr class="tr-info">
-			<td>
-				¡Estamos felices de que hayas elegido La Granja Villa para pasar tu día! Nuestro objetivo es que vivas una experiencia entretenida y educativa al lado de tus seres queridos. Lee las siguientes indicaciones, por favor. te permitirán prepararte para el día de tu visita:<br>
-				La persona que porte este cupón deberá tomar en cuenta que todas las coordinaciones se deberán de tratar directamente con la empresa a cargo.<br><br>
-			</td>
-		</tr>
 		<tr class="tr-info">
 			<td>
 				1. El cupón con la promoción que entregó EL ESTABLECIMIENTO debe presentarse en el módulo de caja del

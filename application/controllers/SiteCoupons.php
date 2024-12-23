@@ -14,8 +14,6 @@ class SiteCoupons extends CI_Controller
 		$this->load->model('Cliente_model');
 		$this->load->library('session');
 		$this->load->database();
-		require_once APPPATH . 'third_party/dompdf/autoload.inc.php';
-		require_once APPPATH . 'third_party/sendmail/class.phpmailer.php';
 	}
 	public function index()
 	{
@@ -51,12 +49,8 @@ class SiteCoupons extends CI_Controller
 
 	public function logout()
 	{
-		if (session_start()) {
-			session_destroy();
-			redirect('cupones');
-		} else {
-			redirect('cupones');
-		}
+		session_destroy();
+		redirect('cupones/inicio');
 	}
 
 	public function main()
@@ -92,7 +86,7 @@ class SiteCoupons extends CI_Controller
 		$customer = $this->input->post('customer');
 		$email = $this->input->post('email');
 		$dni = $this->input->post('dni');
-				
+
 		$cliente = new Cliente_model();
 		$client = $cliente->obtener_cliente($idCustomer);
 
@@ -112,13 +106,13 @@ class SiteCoupons extends CI_Controller
 				'dni' => $dni,
 				'nombre' => $client->txt_nombre,
 				'ruc' => $client->txt_direccion,
+				'txt_email' => $client->txt_email,
 				'nroCupon' => $nroCupon,
 			];
 			$html = $this->load->view('coupons/pdf', $data, true);
 
 			$filename = $nroCupon . '.pdf';
-			$filePath = $this->dompdf_lib->generar_pdf($html, $filename);
-			echo $filePath;
+			$this->dompdf_lib->generar_pdf($html, $filename);
 			sleep(3);
 			if (file_exists("download/{$nroCupon}.pdf")) {
 
@@ -126,62 +120,58 @@ class SiteCoupons extends CI_Controller
 
 				/**** Genere to email ****/
 				$from = "sistemas@cosmicbowling.com.pe";
-				$name = "Reservas Cosmic Bowling";
+				$name = "Cosmic Bowling";
 				$to   = $email;
 				//$cc   = "ljruizperalta@gmail.com, lvega@websconsulting.com";    
 				$subject = utf8_decode("Cupón de Descuento");
 				$body    = utf8_decode("Buen día, <strong>" . ucwords($customer) . "</strong><br/><br/>
-                Adjunto encontrará su cupón, por favor imprimirlo al apersonarse a nuestras sedes.<br/><br/>                
+                Adjunto encontrará su cupón, por favor imprimirlo al apersonarse a nuestra sede.<br/><br/>                
                 Muchas gracias<br/>
                 Cosmic Bowling");
 
 
 				$mail = new PHPMailer();
-				try {
-					//Server settings
-					$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-					$mail->isSMTP();                                            //Send using SMTP
-					$mail->Host       = 'mail.cosmicbowling.com.pe';                     //Set the SMTP server to send through
-					$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-					$mail->Username   = 'sistemas@cosmicbowling.com.pe';                     //SMTP username
-					$mail->Password   = '3JvZBRlUpilP';                               //SMTP password
-					$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-					$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-				
-					//Recipients
-					$mail->setFrom($from);
-					$mail->addAddress($to);               //Name is optional
-					// $mail->addReplyTo('info@example.com', 'Information');
-					// $mail->addCC('cc@example.com');
-					// $mail->addBCC('bcc@example.com');
-				
-					//Attachments
-					$mail->addAttachment("./download/{$nroCupon}.pdf");         //Add attachments
-				
-					//Content
-					$mail->isHTML(true);                                  //Set email format to HTML
-					$mail->Subject = $subject;
-					$mail->Body    = $body;
-					// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-				
-					$exito = $mail->send();
-					$intentos = 1;
-					while ((!$exito) && ($intentos < 2)) {
-						sleep(5);
-						$exito = $mail->Send();
-						$intentos = $intentos + 1;
-					}
-					if (!$exito) {
-						$content = "Mailer Error: " . $mail->ErrorInfo;
-					} else {
-						$content = '<br><div class="text-center">Por favor verifica su correo para activar su cuenta y poder iniciar sessión</div><br>';
-					}
-				} catch (Exception $e) {
-					echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+				//Server settings
+				$mail->SMTPDebug = SMTP::DEBUG_SERVER;              //Enable verbose debug output
+				$mail->isSMTP();                                            //Send using SMTP
+				$mail->Host       = 'mail.cosmicbowling.com.pe';                     //Set the SMTP server to send through
+				$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+				$mail->Username   = 'sistemas@cosmicbowling.com.pe';                     //SMTP username
+				$mail->Password   = '3JvZBRlUpilP';                               //SMTP password
+				$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+				$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+				//Recipients
+				$mail->setFrom($from, $name);
+				$mail->addAddress($to, $name);               //Name is optional
+				// $mail->addReplyTo('info@example.com', 'Information');
+				// $mail->addCC('cc@example.com');
+				// $mail->addBCC('bcc@example.com');
+
+				//Attachments
+				$mail->addAttachment("./download/{$nroCupon}.pdf");         //Add attachments
+
+				//Content
+				$mail->isHTML(true);                                  //Set email format to HTML
+				$mail->Subject = $subject;
+				$mail->Body    = $body;
+				// $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+				$exito = $mail->send();
+				$intentos = 1;
+				while ((!$exito) && ($intentos < 2)) {
+					sleep(5);
+					$exito = $mail->Send();
+					$intentos = $intentos + 1;
+				}
+				if (!$exito) {
+					$content = "Mailer Error: " . $mail->ErrorInfo;
+				} else {
+					$content = '<br><div class="text-center">Por favor verifica su correo para activar su cuenta y poder iniciar sessión</div><br>';
 				}
 			}
 			echo "OK";
-		}else{
+		} else {
 			echo 'FAIL';
 		}
 	}
