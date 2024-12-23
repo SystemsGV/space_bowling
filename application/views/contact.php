@@ -9,7 +9,7 @@
     <div class="row" style="margin-top: 10px">
         <div class="col-md-8">
             <div class="well well-sm">
-                <form method="post" action="<?= base_url() ?>correo-contactanos">
+                <form method="post" action="<?= base_url() ?>correo-contactanos" id="contactForm">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -19,14 +19,13 @@
                             <div class="form-group">
                                 <label for="email">Dirección Correo</label>
                                 <div class="input-group">
-                                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                    </span>
+                                    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
                                     <input type="email" class="form-control" name="email" placeholder="Ingrese correo electronico" required="required" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="telefono">Telefono</label>
-                                <input type="number" class="form-control" name="telefono" placeholder="N° Telefono" required="required" />
+                                <label for="telefono">Teléfono</label>
+                                <input type="number" class="form-control" name="telefono" placeholder="N° Teléfono" required="required" />
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -35,10 +34,8 @@
                                 <textarea name="message" id="message" class="form-control" rows="9" cols="25" required placeholder="Mensaje"></textarea>
                             </div>
                             <div class="form-group">
-                                <div class="g-recaptcha" style="transform: scale(0.84);
-                        transform-origin: 0 0;" data-sitekey="6LceGcAUAAAAALcSVRZlYbpXQrtLRB9pTgfHtTRq"></div>
+                                <div class="g-recaptcha" data-sitekey="6Ld1U6QqAAAAADc6vYSEUq1aCN--L37cECIzOvuT"></div>
                             </div>
-
                         </div>
 
                         <div class="col-md-12">
@@ -82,3 +79,18 @@
         </div>
     </div>
 </div>
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+    // Validación de reCAPTCHA antes de enviar el formulario
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        var recaptchaResponse = grecaptcha.getResponse(); // Obtiene la respuesta del reCAPTCHA
+
+        if (recaptchaResponse.length === 0) {
+            event.preventDefault(); // Evita el envío del formulario
+            alert('Por favor, completa el reCAPTCHA.');
+        }
+    });
+</script>

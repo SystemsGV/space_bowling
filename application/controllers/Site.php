@@ -79,20 +79,42 @@ class Site extends CI_Controller
 
   public function send_contact()
   {
+
+    $secretKey = "6Ld1U6QqAAAAALdaZVz75nyTSvI6kgY-cGGj3wcD";
+
     // Datos del formulario
     $name = $this->input->post('name');
     $email = $this->input->post('email');
     $telefono = $this->input->post('telefono');
     $message_content = $this->input->post('message');
 
-    // Dirección de correo electrónico del destinatario
-    $to = "atencionalcliente@cosmicbowling.com.pe";
+    $recaptchaResponse = $this->input->post('g-recaptcha-response');
 
-    // Asunto del correo electrónico
-    $subject = "Cosmic Bowling - Formulario Web";
+    // Validar reCAPTCHA
+    $url = "https://www.google.com/recaptcha/api/siteverify";
+    $data = array(
+      'secret' => $secretKey,
+      'response' => $recaptchaResponse
+    );
 
-    // Crear el mensaje de correo electrónico
-    $message = "
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $responseKeys = json_decode($response, true);
+
+    if (isset($responseKeys["success"]) && $responseKeys["success"] === true) {
+
+      // Dirección de correo electrónico del destinatario
+      $to = "atencionalcliente@cosmicbowling.com.pe";
+
+      // Asunto del correo electrónico
+      $subject = "Cosmic Bowling - Formulario Web";
+
+      // Crear el mensaje de correo electrónico
+      $message = "
     <html>
     <head>
         <style>
@@ -132,20 +154,25 @@ class Site extends CI_Controller
     ";
 
 
-    // Configurar la biblioteca de correo electrónico de CodeIgniter
-    $this->load->library('email');
+      // Configurar la biblioteca de correo electrónico de CodeIgniter
+      $this->load->library('email');
 
-    $this->email->from($email, $name);
-    $this->email->to($to);
-    $this->email->subject($subject);
-    $this->email->message($message);
+      $this->email->from($email, $name);
+      $this->email->to($to);
+      $this->email->subject($subject);
+      $this->email->message($message);
 
-    // Intentar enviar el correo electrónico
-    if ($this->email->send()) {
-      echo '<script language="javascript"> alert("El mensaje ha sido enviado correctamente."); </script>';
-      echo '<script language="JavaScript"> window.location.href ="' . base_url() . '" </script>';
+      // Intentar enviar el correo electrónico
+      if ($this->email->send()) {
+        echo '<script language="javascript"> alert("El mensaje ha sido enviado correctamente."); </script>';
+        echo '<script language="JavaScript"> window.location.href ="' . base_url() . '" </script>';
+      } else {
+        echo "Error: ." . $this->email->print_debugger();
+      }
     } else {
-      echo "Error: ." . $this->email->print_debugger();
+      // reCAPTCHA inválido
+      $this->session->set_flashdata('error', 'Por favor, completa el reCAPTCHA para enviar el mensaje.');
+      redirect('contacto'); // Cambia 'contacto' por la URL o ruta de tu formulario
     }
   }
 
