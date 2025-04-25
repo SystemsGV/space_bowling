@@ -32,6 +32,21 @@ class Site extends CI_Controller
     $data['title'] = "Tarifas";
     $this->template->load('template', 'rates', $data);
   }
+
+	public function rates_lj()
+	{
+		$data['img'] = TRUE;
+		$data['title'] = "Tarifas Lunes a Jueves";
+		$this->template->load('template', 'rates_lj', $data);
+	}
+
+	public function rates_vd()
+	{
+		$data['img'] = TRUE;
+		$data['title'] = "Tarifas Viernes a Domingo";
+		$this->template->load('template', 'rates_vd', $data);
+	}
+
   public function services()
   {
     $data['img'] = TRUE;

@@ -57,6 +57,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['Quienes-Somos'] = 'site/about';
 $route['Instalaciones'] = 'site/facilities';
 $route['Tarifa'] = 'site/rates';
+$route['Tarifa/Lunes_Jueves'] = 'site/rates_lj';
+$route['Tarifa/Viernes_Domingo'] = 'site/rates_vd';
 $route['Servicios'] = 'site/services';
 $route['Contactenos'] = 'site/contact';
 
