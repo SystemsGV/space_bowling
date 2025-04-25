@@ -12,7 +12,7 @@
 						<div class="tab-content" style="padding: 10px;">
 							<div id="cumpleaños" class="tab-pane fade in active">
 								<!-- Video con ID para controlarlo desde JavaScript -->
-								<video id="videoCumpleanos" width="100%" muted autoplay loop playsinline>
+								<video id="videoCumpleanos" width="100%" muted autoplay loop playsinline preload="auto">
 									<source src="<?= base_url() ?>assets/videos/dia_semana.mp4" type="video/mp4">
 									Tu navegador no soporta la etiqueta de video.
 								</video>

@@ -93,7 +93,7 @@
 						<div class="col-lg-12 text-center">
 
 							<div id="logo">
-								<a href="index.php">
+								<a href="<?= base_url() ?>">
 									<img src="<?= base_url() ?>new/images/logo.png" alt="Logo" class="img-fluid">
 								</a>
 
