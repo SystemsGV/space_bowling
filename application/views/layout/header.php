@@ -78,7 +78,7 @@
 <body>
 	<input type="hidden" value="<?= $title ?>" id="current-title">
 	<div class="loader">
-		<img class="img-center" src="new/images/logo.png" alt="">
+		<img class="img-center" src="<?= base_url() ?>new/images/logo.png" alt="">
 	</div>
 
 	<!-- Header -->
