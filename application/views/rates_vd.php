@@ -8,7 +8,7 @@
 				<article class="row">
 
 					<div class="col-md-12" style="background:rgba(130,128,128,0.17); ">
-						<h2 style="color: white;">TARIFA DE VIERNES A DOMINGO (VÍSPERA A FERIADO Y FERIADOS)</h2>
+						<h2 style="color: white;">TARIFA DE VIERNES A DOMINGO (VÍSPERA b A FERIADO Y FERIADOS)</h2>
 						<div class="tab-content" style="padding: 10px;">
 							<div id="cumpleaños" class="tab-pane fade in active">
 								<!-- Video con ID para controlarlo desde JavaScript -->
