@@ -3,35 +3,35 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Site extends CI_Controller
 {
-  public function __construct()
-  {
-    parent::__construct();
-  }
-  public function index()
-  {
-    $data['img'] = TRUE;
-    $data['title'] = "Inicio";
-    $this->template->load('template', 'index', $data);
-  }
-  public function about()
-  {
-    $data['img'] = FALSE;
-    $data['title'] = "Quienes Somos";
-    $this->template->load('template', 'about', $data);
-  }
-  public function facilities()
-  {
-    $data['img'] = TRUE;
-    $data['title'] = "Instalaciones";
-    $this->template->load('template', 'facilities', $data);
-  }
+	public function __construct()
+	{
+		parent::__construct();
+	}
+	public function index()
+	{
+		$data['img'] = TRUE;
+		$data['title'] = "Inicio";
+		$this->template->load('template', 'index', $data);
+	}
+	public function about()
+	{
+		$data['img'] = FALSE;
+		$data['title'] = "Quienes Somos";
+		$this->template->load('template', 'about', $data);
+	}
+	public function facilities()
+	{
+		$data['img'] = TRUE;
+		$data['title'] = "Instalaciones";
+		$this->template->load('template', 'facilities', $data);
+	}
 
-  public function rates()
-  {
-    $data['img'] = TRUE;
-    $data['title'] = "Tarifas";
-    $this->template->load('template', 'rates', $data);
-  }
+	public function rates()
+	{
+		$data['img'] = TRUE;
+		$data['title'] = "Tarifas";
+		$this->template->load('template', 'rates', $data);
+	}
 
 	public function rates_lj()
 	{
@@ -47,89 +47,89 @@ class Site extends CI_Controller
 		$this->template->load('template', 'rates_vd', $data);
 	}
 
-  public function services()
-  {
-    $data['img'] = TRUE;
+	public function services()
+	{
+		$data['img'] = TRUE;
 
-    $data['title'] = "Servicios";
-    $this->template->load('template', 'services', $data);
-  }
-  public function contact()
-  {
-    $data['title'] = "Contactanos";
-    $data['img'] = FALSE;
-    $this->template->load('template', 'contact', $data);
-  }
-  public function blockclaims()
-  {
-    $data['img'] = TRUE;
-    $data['title'] = "Libro de Reclamaciones";
-    $this->load->view('ext/blockclaims', $data);
-  }
-  public function promotions()
-  {
-    $data['img'] = TRUE;
-    $data['title'] = "Promociones";
-    $this->template->load('template', 'ext/promotions', $data);
-  }
-  public function protocol()
-  {
-    $data['img'] = TRUE;
-    $data['title'] = "Protocolo de Ingreso";
-    $this->load->view('ext/protocol', $data);
-  }
-  public function securityguide()
-  {
-    $data['img'] = TRUE;
-    $data['title'] = "Guía de Seguridad";
-    $this->load->view('ext/securityguide', $data);
-  }
+		$data['title'] = "Servicios";
+		$this->template->load('template', 'services', $data);
+	}
+	public function contact()
+	{
+		$data['title'] = "Contactanos";
+		$data['img'] = FALSE;
+		$this->template->load('template', 'contact', $data);
+	}
+	public function blockclaims()
+	{
+		$data['img'] = TRUE;
+		$data['title'] = "Libro de Reclamaciones";
+		$this->load->view('ext/blockclaims', $data);
+	}
+	public function promotions()
+	{
+		$data['img'] = TRUE;
+		$data['title'] = "Promociones";
+		$this->template->load('template', 'ext/promotions', $data);
+	}
+	public function protocol()
+	{
+		$data['img'] = TRUE;
+		$data['title'] = "Protocolo de Ingreso";
+		$this->load->view('ext/protocol', $data);
+	}
+	public function securityguide()
+	{
+		$data['img'] = TRUE;
+		$data['title'] = "Guía de Seguridad";
+		$this->load->view('ext/securityguide', $data);
+	}
 
-  public function faqs()
-  {
-    $data['img'] = TRUE;
-    $data['title'] = "Preguntas Frecuentes";
-    $this->template->load('template', 'ext/faqs', $data);
-  }
+	public function faqs()
+	{
+		$data['img'] = TRUE;
+		$data['title'] = "Preguntas Frecuentes";
+		$this->template->load('template', 'ext/faqs', $data);
+	}
 
-  public function send_contact()
-  {
+	public function send_contact()
+	{
 
-    $secretKey = "6Ld1U6QqAAAAALdaZVz75nyTSvI6kgY-cGGj3wcD";
+		$secretKey = "6Ld1U6QqAAAAALdaZVz75nyTSvI6kgY-cGGj3wcD";
 
-    // Datos del formulario
-    $name = $this->input->post('name');
-    $email = $this->input->post('email');
-    $telefono = $this->input->post('telefono');
-    $message_content = $this->input->post('message');
+		// Datos del formulario
+		$name = $this->input->post('name');
+		$email = $this->input->post('email');
+		$telefono = $this->input->post('telefono');
+		$message_content = $this->input->post('message');
 
-    $recaptchaResponse = $this->input->post('g-recaptcha-response');
+		$recaptchaResponse = $this->input->post('g-recaptcha-response');
 
-    // Validar reCAPTCHA
-    $url = "https://www.google.com/recaptcha/api/siteverify";
-    $data = array(
-      'secret' => $secretKey,
-      'response' => $recaptchaResponse
-    );
+		// Validar reCAPTCHA
+		$url = "https://www.google.com/recaptcha/api/siteverify";
+		$data = array(
+			'secret' => $secretKey,
+			'response' => $recaptchaResponse
+		);
 
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    $response = curl_exec($ch);
-    curl_close($ch);
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		$response = curl_exec($ch);
+		curl_close($ch);
 
-    $responseKeys = json_decode($response, true);
+		$responseKeys = json_decode($response, true);
 
-    if (isset($responseKeys["success"]) && $responseKeys["success"] === true) {
+		if (isset($responseKeys["success"]) && $responseKeys["success"] === true) {
 
-      // Dirección de correo electrónico del destinatario
-      $to = "atencionalcliente@cosmicbowling.com.pe";
+			// Dirección de correo electrónico del destinatario
+			$to = "atencionalcliente@cosmicbowling.com.pe";
 
-      // Asunto del correo electrónico
-      $subject = "Cosmic Bowling - Formulario Web";
+			// Asunto del correo electrónico
+			$subject = "Cosmic Bowling - Formulario Web";
 
-      // Crear el mensaje de correo electrónico
-      $message = "
+			// Crear el mensaje de correo electrónico
+			$message = "
     <html>
     <head>
         <style>
@@ -169,54 +169,69 @@ class Site extends CI_Controller
     ";
 
 
-      // Configurar la biblioteca de correo electrónico de CodeIgniter
-      $this->load->library('email');
+			// Configurar la biblioteca de correo electrónico de CodeIgniter
+			$this->load->library('email');
 
-      $this->email->from($email, $name);
-      $this->email->to($to);
-      $this->email->subject($subject);
-      $this->email->message($message);
+			$this->email->from($email, $name);
+			$this->email->to($to);
+			$this->email->subject($subject);
+			$this->email->message($message);
 
-      // Intentar enviar el correo electrónico
-      if ($this->email->send()) {
-        echo '<script language="javascript"> alert("El mensaje ha sido enviado correctamente."); </script>';
-        echo '<script language="JavaScript"> window.location.href ="' . base_url() . '" </script>';
-      } else {
-        echo "Error: ." . $this->email->print_debugger();
-      }
-    } else {
-      // reCAPTCHA inválido
-      $this->session->set_flashdata('error', 'Por favor, completa el reCAPTCHA para enviar el mensaje.');
-      redirect('contacto'); // Cambia 'contacto' por la URL o ruta de tu formulario
-    }
-  }
+			// Intentar enviar el correo electrónico
+			if ($this->email->send()) {
+				echo '<script language="javascript"> alert("El mensaje ha sido enviado correctamente."); </script>';
+				echo '<script language="JavaScript"> window.location.href ="' . base_url() . '" </script>';
+			} else {
+				echo "Error: ." . $this->email->print_debugger();
+			}
+		} else {
+			// reCAPTCHA inválido
+			$this->session->set_flashdata('error', 'Por favor, completa el reCAPTCHA para enviar el mensaje.');
+			redirect('contacto'); // Cambia 'contacto' por la URL o ruta de tu formulario
+		}
+	}
 
-  public function mailclaims()
-  {
-    // crear variable para el receptor de correo. Imprimir todo el formulario de html en php
-    // $email_to = "adm@cosmicbowling.com.pe";	
-    $email_to = "atencionalcliente@cosmicbowling.com.pe";
-    //Datos del Cliente
-    $first_name = $_POST['nombre'];
-    $first_ape = $_POST['apellidos'];
-    $tipo = $_POST['tipo'];
-    $tipo_numero = $_POST['numero'];
-    $departa = $_POST['depart'];
-    $distrito = $_POST['distrito'];
-    $domicilio = $_POST['domicilio'];
-    $telefono = $_POST['telefono'];
-    $email_from = $_POST['email'];
-    //Informaci贸n General:
-    $subject = $_POST['tipoderq'];
-    $opcion = $_POST['opcion'];
-    $descripcion = $_POST['descripcion'];
-    $monto = $_POST['monto'];
-    //Detalle de su reclamo:
-    $tipoderq = $_POST['subject'];
-    $fecha = $_POST['fecha'];
-    $message = $_POST['message'];
-    //Creando estructura de html para los datos
-    $email_message = "
+	public function mailclaims()
+	{
+
+		$recaptcha = $_POST['g-recaptcha-response'];
+
+		if (empty($recaptcha)) {
+			die('Por favor, completa el reCAPTCHA');
+		}
+
+		// Validar con Google
+		$secret = '6LfmbzgrAAAAABYkSCLzRKI9YSlme08aLFkovo92'; // desde https://www.google.com/recaptcha/admin
+		$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$recaptcha");
+		$responseKeys = json_decode($response, true);
+
+		if (!$responseKeys["success"]) {
+			die('Verificación reCAPTCHA fallida.');
+		}
+		// crear variable para el receptor de correo. Imprimir todo el formulario de html en php
+		// $email_to = "adm@cosmicbowling.com.pe";	
+		$email_to = "atencionalcliente@cosmicbowling.com.pe";
+		//Datos del Cliente
+		$first_name = $_POST['nombre'];
+		$first_ape = $_POST['apellidos'];
+		$tipo = $_POST['tipo'];
+		$tipo_numero = $_POST['numero'];
+		$departa = $_POST['depart'];
+		$distrito = $_POST['distrito'];
+		$domicilio = $_POST['domicilio'];
+		$telefono = $_POST['telefono'];
+		$email_from = $_POST['email'];
+		//Informaci贸n General:
+		$subject = $_POST['tipoderq'];
+		$opcion = $_POST['opcion'];
+		$descripcion = $_POST['descripcion'];
+		$monto = $_POST['monto'];
+		//Detalle de su reclamo:
+		$tipoderq = $_POST['subject'];
+		$fecha = $_POST['fecha'];
+		$message = $_POST['message'];
+		//Creando estructura de html para los datos
+		$email_message = "
         	<h2>Datos de la Persona que presenta el Reclamo:</h2>
 	  <table>
 	  <tr>
@@ -271,76 +286,76 @@ class Site extends CI_Controller
 	  </table>
 		
 	  ";
-    $header = "MIME-Version: 1.0\r\n";
-    $header = 'From: ' . $email_from . "\r\n" .
-      $header .= 'Bcc: sistemas.st@lagranjavilla.com, adm@cosmicbowling.com.pe, operaciones.gs@lagranjavilla.com' . "\r\n";
-    $header .= 'Content-Type: text/html; charset=utf-8' . "\r\n";
-    $header .= 'Cc: ' . $email_from . "\r\n";
-    $header .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
+		$header = "MIME-Version: 1.0\r\n";
+		$header = 'From: ' . $email_from . "\r\n" .
+			$header .= 'Bcc: sistemas.st@lagranjavilla.com, adm@cosmicbowling.com.pe, operaciones.gs@lagranjavilla.com' . "\r\n";
+		$header .= 'Content-Type: text/html; charset=utf-8' . "\r\n";
+		$header .= 'Cc: ' . $email_from . "\r\n";
+		$header .= 'X-Mailer: PHP/' . phpversion() . "\r\n";
 
 
-    if (@mail($email_to, $subject, $email_message, $header)) {
-      //Sale un alerta de confirmaci贸n de que el mensaje se ha enviado.
-      echo '<script language="javascript"> alert("El mensaje ha sido enviado correctamente."); </script>';
-      //Redirecci贸n a la pagina que gusten
-      echo '<script language="JavaScript"> window.location.href ="' . base_url() . '" </script>';
-      //header('location:www.lagranjavilla/zonaecologica/');
-    } else {
-      echo "Por favor verifica la informacion";
-    }
-  }
+		if (@mail($email_to, $subject, $email_message, $header)) {
+			//Sale un alerta de confirmaci贸n de que el mensaje se ha enviado.
+			echo '<script language="javascript"> alert("El mensaje ha sido enviado correctamente."); </script>';
+			//Redirecci贸n a la pagina que gusten
+			echo '<script language="JavaScript"> window.location.href ="' . base_url() . '" </script>';
+			//header('location:www.lagranjavilla/zonaecologica/');
+		} else {
+			echo "Por favor verifica la informacion";
+		}
+	}
 
-  public function invoice()
-  {
-    $this->load->view('invoice');
-  }
+	public function invoice()
+	{
+		$this->load->view('invoice');
+	}
 
-  public function mailInvoice()
-  {
+	public function mailInvoice()
+	{
 
-    $recaptchaResponse = $this->input->post('g-recaptcha-response');
-    $secretKey = '6LcbIe0pAAAAACTFl14lMnkmllZ5A9CKnsnlk6cr';
-    $userIP = $this->input->ip_address();
+		$recaptchaResponse = $this->input->post('g-recaptcha-response');
+		$secretKey = '6LcbIe0pAAAAACTFl14lMnkmllZ5A9CKnsnlk6cr';
+		$userIP = $this->input->ip_address();
 
-    // Verificar la respuesta del reCAPTCHA
-    $url = 'https://www.google.com/recaptcha/api/siteverify';
-    $data = array(
-      'secret' => $secretKey,
-      'response' => $recaptchaResponse,
-      'remoteip' => $userIP
-    );
+		// Verificar la respuesta del reCAPTCHA
+		$url = 'https://www.google.com/recaptcha/api/siteverify';
+		$data = array(
+			'secret' => $secretKey,
+			'response' => $recaptchaResponse,
+			'remoteip' => $userIP
+		);
 
-    $options = array(
-      'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data)
-      )
-    );
-    $context  = stream_context_create($options);
-    $result = file_get_contents($url, false, $context);
-    $responseData = json_decode($result);
+		$options = array(
+			'http' => array(
+				'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+				'method'  => 'POST',
+				'content' => http_build_query($data)
+			)
+		);
+		$context  = stream_context_create($options);
+		$result = file_get_contents($url, false, $context);
+		$responseData = json_decode($result);
 
-    if (!$responseData->success) {
-      echo json_encode(array('status' => 'error', 'message' => 'La verificación reCAPTCHA falló.'));
-      return;
-    }
+		if (!$responseData->success) {
+			echo json_encode(array('status' => 'error', 'message' => 'La verificación reCAPTCHA falló.'));
+			return;
+		}
 
-    $dt = $this->input->post('documentType');
-    $id = $this->input->post('invoiceDoc');
-    $it = $this->input->post('invoiceType');
-    $sd = $this->input->post('invoiceDate');
-    $ia = $this->input->post('invoiceAmount');
-    $ie = $this->input->post('invoiceEmail');
+		$dt = $this->input->post('documentType');
+		$id = $this->input->post('invoiceDoc');
+		$it = $this->input->post('invoiceType');
+		$sd = $this->input->post('invoiceDate');
+		$ia = $this->input->post('invoiceAmount');
+		$ie = $this->input->post('invoiceEmail');
 
-    // Dirección de correo electrónico del destinatario
-    $to = "contador@samitask.com";
+		// Dirección de correo electrónico del destinatario
+		$to = "contador@samitask.com";
 
-    // Asunto del correo electrónico
-    $subject = "Cosmic Bowling - Solicitud de Comprobante";
+		// Asunto del correo electrónico
+		$subject = "Cosmic Bowling - Solicitud de Comprobante";
 
-    // Crear el mensaje de correo electrónico
-    $message = "
+		// Crear el mensaje de correo electrónico
+		$message = "
     <html>
     <head>
         <style>
@@ -385,25 +400,25 @@ class Site extends CI_Controller
     </html>
     ";
 
-    $this->load->library('email');
+		$this->load->library('email');
 
-    $this->email->from($ie, 'Solicitud de Comprobante');
-    $this->email->to($to);
-    $this->email->subject($subject);
-    $this->email->message($message);
+		$this->email->from($ie, 'Solicitud de Comprobante');
+		$this->email->to($to);
+		$this->email->subject($subject);
+		$this->email->message($message);
 
-    if ($this->email->send()) {
-      $response = array(
-        'status' => 'success',
-        'message' => 'El correo ha sido enviado correctamente.',
-      );
-    } else {
-      $response = array(
-        'status' => 'error',
-        'message' => 'Error al enviar el correo: ' . $this->email->print_debugger()
-      );
-    }
+		if ($this->email->send()) {
+			$response = array(
+				'status' => 'success',
+				'message' => 'El correo ha sido enviado correctamente.',
+			);
+		} else {
+			$response = array(
+				'status' => 'error',
+				'message' => 'Error al enviar el correo: ' . $this->email->print_debugger()
+			);
+		}
 
-    echo json_encode($response);
-  }
+		echo json_encode($response);
+	}
 }
